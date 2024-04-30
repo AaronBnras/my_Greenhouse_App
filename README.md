@@ -1,0 +1,2 @@
+# My_Greenhouse_App
+ This Mobile App is developed using dart programming language and using the framework that is Flutter, This Mobile App is  based on IoT Technology, The mobile App is special for Greenhouse Monitoring and Control System ibased IoT system and this Mobile App is used to Monitor the parameters that ac crucial for greenjouse farm and crops that a plant in it. to help the farmer to monitor the enviromental condition for better growth of crops in a greenhouse farm
