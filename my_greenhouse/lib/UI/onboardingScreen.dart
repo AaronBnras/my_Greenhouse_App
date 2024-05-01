@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/login_page.dart';
+import 'package:my_greenhouse/UI/SignIn.dart';
 import 'package:my_greenhouse/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => const Login()));
+                    context, MaterialPageRoute(builder: (_) => const SignIn()));
               },
               child: const Text(
                 'skip',
@@ -59,16 +59,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 description: Constants.descriptionOne,
               ),
               createPage(
-                image:
-                    'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
+                image: 'assets/images/Intro-2.png',
                 title: Constants.titleTwo,
                 description: Constants.descriptionTwo,
               ),
               createPage(
                 image:
-                    'assets/images/black-farmer-welcoming-with-thumbs-up.png',
+                    'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
                 title: Constants.titleThree,
                 description: Constants.descriptionThree,
+              ),
+              createPage(
+                image:
+                    'assets/images/black-farmer-welcoming-with-thumbs-up.png',
+                title: Constants.titleFour,
+                description: Constants.descriptionFour,
               )
             ],
           ),
@@ -83,22 +88,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               bottom: 60,
               right: 30,
               child: Container(
-                padding: const EdgeInsets.all(4),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle, color: Constants.primaryColor),
                 child: IconButton(
                     onPressed: () {
                       setState(() {
-                        if (currentindex < 2) {
+                        if (currentindex < 3) {
                           currentindex++;
-                          if (currentindex < 3) {
+                          if (currentindex < 4) {
                             _pageController.nextPage(
                                 duration: const Duration(milliseconds: 300),
                                 curve: Curves.easeIn);
                           }
                         } else {
                           Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => const Login()));
+                              MaterialPageRoute(builder: (_) => const SignIn()));
                         }
                       });
                     },
