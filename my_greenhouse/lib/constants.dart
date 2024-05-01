@@ -6,10 +6,10 @@ class Constants {
   static var blackColor = Colors.black54;
 
   //Onboarding texts
-  static var titleOne = "Welcome to My GreenHouse App";
+  static var titleOne = "Welcome To My GreenHouse App";
   static var descriptionOne = "Monitor your greenhouse farm for better crop growth.";
-  static var titleTwo = "Find a plant lover friend";
-  static var descriptionTwo = "Are you a plant lover? Connect with other plant lovers.";
-  static var titleThree = "Plant a tree, green the Earth";
-  static var descriptionThree = "Find almost all types of plants that you like here.";
+  static var titleTwo = "My GreenHouse App";
+  static var descriptionTwo = "Increase Your Productivity And Get The Maximum of Your Crops";
+  static var titleThree = "Let's Get Started";
+  static var descriptionThree = "Click the Button To SignIn or SignUp in the My GreenHouse App";
 }
