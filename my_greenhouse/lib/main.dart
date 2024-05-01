@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/UI/onboardingScreen.dart';
 
-void main(){
+void main() {
   // ignore: prefer_const_constructors
   runApp(MyApp());
 }
@@ -18,4 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-  
