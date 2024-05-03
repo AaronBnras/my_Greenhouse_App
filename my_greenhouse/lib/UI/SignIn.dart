@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/screens/widgets/custom_Textfield.dart';
 import 'package:my_greenhouse/constants.dart';
+
+import 'screens/widgets/custom_Textfield.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -27,19 +28,38 @@ class SignIn extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            customTextfield(),
-            // TextField(
-            //   obscureText: false,
-            //   style: TextStyle(
-            //     color: Constants.blackColor,
-            //   ),
-            //   decoration: InputDecoration(
-            //     border: InputBorder.none,
-            //     prefixIcon: Icon(Icons.alternate_email, color: Constants.blackColor.withOpacity(.3),),
-            //     hintText: "Enter Username",
-            //   ),
-            //   cursorColor: Constants.blackColor.withOpacity(.5),
-            // )
+            const customTextfield(
+              obscureText: false,
+              hintText: 'Enter Email',
+              icon: Icons.alternate_email,
+            ),
+            const customTextfield(
+              obscureText: true,
+              hintText: 'Enter Password',
+              icon: Icons.lock,
+            ),
+            const SizedBox(
+              height:  10,
+            ),
+            GestureDetector(
+              onTap: (){
+                // Navigator.pushReplacement(context, PageTransition(child: const RootPage(), type: pageTransitionType.bottomToTop ))
+              },
+              child: Container(
+                width: size.width,
+                decoration: BoxDecoration(
+                  color: Constants.primaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: const Center(
+                  child: Text('Sign In', style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),),
+                ),
+              ),
+            )
           ],
         ),
       ),
