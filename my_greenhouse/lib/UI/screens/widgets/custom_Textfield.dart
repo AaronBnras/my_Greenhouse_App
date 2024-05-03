@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
 
 
+// ignore: camel_case_types
 class customTextfield extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
