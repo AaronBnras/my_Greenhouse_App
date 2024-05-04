@@ -3,17 +3,24 @@ import 'package:my_greenhouse/constants.dart';
 
 
 // ignore: camel_case_types
-class customTextfield extends StatelessWidget {
+class customtextfield extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
   final String hintText;
 
-  const customTextfield({
+  const customtextfield({
     super.key,
     required this.icon,
     required this.obscureText,
     required this.hintText,
   });
+
+  // const customTextfield({
+  //   super.key,
+  //   required this.icon,
+  //   required this.obscureText,
+  //   required this.hintText,
+  // });
 
   @override
   Widget build(BuildContext context) {
