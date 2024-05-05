@@ -1,9 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/SignIn.dart';
+
+import 'package:my_greenhouse/UI/root-page.dart';
 import 'package:my_greenhouse/constants.dart';
-import 'package:my_greenhouse/models/rootpage.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -29,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => const SignIn()));
+                    context, MaterialPageRoute(builder: (_) => const rootpage()));
               },
               child: const Text(
                 'skip',
@@ -119,7 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-//creating the indicator discription Widget
+//creating the indicator description Widget
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
