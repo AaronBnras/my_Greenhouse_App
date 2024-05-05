@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/screens/widgets/custom_Textfield.dart';
+import 'package:my_greenhouse/UI/root-page.dart';
 import 'package:my_greenhouse/constants.dart';
-
+import 'package:my_greenhouse/UI/screens/widgets/custom_textfield.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -39,11 +39,11 @@ class SignIn extends StatelessWidget {
               icon: Icons.lock,
             ),
             const SizedBox(
-              height:  10,
+              height: 10,
             ),
             GestureDetector(
-              onTap: (){
-
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const rootpage()));
               },
               child: Container(
                 width: size.width,
@@ -51,12 +51,42 @@ class SignIn extends StatelessWidget {
                   color: Constants.primaryColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 child: const Center(
-                  child: Text('Sign In', style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  ),),
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const rootpage()));
+              },
+              child: Container(
+                width: size.width,
+                decoration: BoxDecoration(
+                  color: Constants.primaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding:
+                const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: const Center(
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                    ),
+                  ),
                 ),
               ),
             )
@@ -66,5 +96,3 @@ class SignIn extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
 
-
 // ignore: camel_case_types
 class customtextfield extends StatelessWidget {
   final IconData icon;
@@ -14,13 +13,6 @@ class customtextfield extends StatelessWidget {
     required this.obscureText,
     required this.hintText,
   });
-
-  // const customTextfield({
-  //   super.key,
-  //   required this.icon,
-  //   required this.obscureText,
-  //   required this.hintText,
-  // });
 
   @override
   Widget build(BuildContext context) {

@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:my_greenhouse/UI/root-page.dart';
+// import 'package:my_greenhouse/UI/root-page.dart';
+import 'package:my_greenhouse/UI/screens/Sign_in.dart';
 import 'package:my_greenhouse/constants.dart';
-
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -30,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => const rootpage()));
+                    context, MaterialPageRoute(builder: (_) => const SignIn()));
               },
               child: const Text(
                 'skip',
@@ -104,8 +104,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 curve: Curves.easeIn);
                           }
                         } else {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => const rootpage()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const SignIn()));
                         }
                       });
                     },
@@ -148,8 +150,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return indicators;
   }
 }
-
-
 
 // ignore: camel_case_types
 class createPage extends StatelessWidget {
