@@ -69,6 +69,36 @@ class SignIn extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
+                // Navigator.pushReplacement(
+                //     context,
+                //     PageTransition(
+                //         child: const ForgotPassword(),
+                //         type: PageTransitionType.bottomToTop));
+              },
+              child: Center(
+                child: Text.rich(
+                  TextSpan(children: [
+                    TextSpan(
+                      text: 'Forgot Password? ',
+                      style: TextStyle(
+                        color: Constants.blackColor,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Reset Here',
+                      style: TextStyle(
+                        color: Constants.primaryColor,
+                      ),
+                    ),
+                  ]),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              onTap: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const rootpage()));
               },
               child: Container(
