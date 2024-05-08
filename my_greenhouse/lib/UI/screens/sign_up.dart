@@ -21,7 +21,7 @@ class SignUp extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView(children: [
-                    Image.asset('../assets/Images/signup.png'),
+                    Image.asset('assets/images/signup.png'),
                     const Text(
                       'Sign Up',
                       style: TextStyle(

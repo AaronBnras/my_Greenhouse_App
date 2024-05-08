@@ -131,7 +131,7 @@ class SignIn extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 30,
-                          child: Image.asset('assets/Images/google.png'),
+                          child: Image.asset('assets/images/google.png'),
                         ),
                         Text(
                           'Sign In with Google',
