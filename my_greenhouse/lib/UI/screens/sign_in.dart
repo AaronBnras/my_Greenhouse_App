@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/root-page.dart';
+import 'package:my_greenhouse/UI/root_page.dart';
 import 'package:my_greenhouse/UI/screens/sign_up.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/UI/screens/widgets/custom_textfield.dart';
@@ -52,7 +52,7 @@ class SignIn extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (_) => const rootpage()));
+                          PageTransition(child: const RootPage(), type: PageTransitionType.leftToRight ));
                     },
                     child: Container(
                       width: size.width,
@@ -131,7 +131,7 @@ class SignIn extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 30,
-                          child: Image.asset('assets/Images/google.png'),
+                          child: Image.asset('assets/images/google.png'),
                         ),
                         Text(
                           'Sign In with Google',

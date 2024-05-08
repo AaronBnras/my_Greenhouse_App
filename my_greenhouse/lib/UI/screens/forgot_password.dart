@@ -20,7 +20,7 @@ class ForgotPassword extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('../assets/Images/reset-password.png'),
+              Image.asset('assets/images/reset-password.png'),
               const Text(
                 'Forgot\nPassword',
                 style: TextStyle(
