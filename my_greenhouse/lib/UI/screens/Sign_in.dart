@@ -166,7 +166,7 @@ class SignIn extends StatelessWidget {
                             color: Constants.blackColor,
                           ),
                         ),
-                      ])),
+                      ],
                     ),
                   )
                 ],
