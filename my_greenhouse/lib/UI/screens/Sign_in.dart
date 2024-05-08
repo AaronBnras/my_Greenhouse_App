@@ -145,18 +145,28 @@ class SignIn extends StatelessWidget {
                     height: 20,
                   ),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.pushReplacement(context, PageTransition(
-                        child: const SignUp(),
-                        type: PageTransitionType.bottomToTop
-                      ));
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                              child: const SignUp(),
+                              type: PageTransitionType.bottomToTop));
                     },
                     child: Center(
-                      child: Text.rich(TextSpan(
-                        children: [
-
-                        ]
-                      )),
+                      child: Text.rich(TextSpan(children: [
+                        TextSpan(
+                          text: 'New To My Greenhouse App? ',
+                          style: TextStyle(
+                            color: Constants.blackColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Register',
+                          style: TextStyle(
+                            color: Constants.blackColor,
+                          ),
+                        ),
+                      ])),
                     ),
                   )
                 ],
