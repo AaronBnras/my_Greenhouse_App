@@ -163,7 +163,7 @@ class SignIn extends StatelessWidget {
                         TextSpan(
                           text: 'Register',
                           style: TextStyle(
-                            color: Constants.blackColor,
+                            color: Constants.primaryColor, fontWeight: FontWeight.w600
                           ),
                         ),
                       ])),
