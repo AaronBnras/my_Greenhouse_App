@@ -60,31 +60,31 @@ class ForgotPassword extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      PageTransition(
-                          child: const SignIn(),
-                          type: PageTransitionType.bottomToTop));
-                },
-                child: Center(
-                  child: Text.rich(
-                    TextSpan(children: [
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text.rich(TextSpan(children: [
                       TextSpan(
-                        text: 'Have an Account? ',
-                        style: TextStyle(
-                          color: Constants.blackColor,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Login',
-                        style: TextStyle(
-                          color: Constants.primaryColor,
-                        ),
-                      ),
-                    ]),
-                  ),
+                          text: 'Have an Account? ',
+                          style: TextStyle(color: Constants.blackColor))
+                    ])),
+                    GestureDetector(
+                        onTap: () => Navigator.pushReplacement(
+                            context,
+                            PageTransition(
+                                child: const SignIn(),
+                                type: PageTransitionType.topToBottom)),
+                        child: Center(
+                            child: Text.rich(TextSpan(children: [
+                              TextSpan(
+                                  text: 'LogIn',
+                                  style: TextStyle(
+                                    color: Constants.primaryColor,
+                                    fontWeight: FontWeight.w600,
+                                  ))
+                            ]))))
+                  ],
                 ),
               ),
             ],

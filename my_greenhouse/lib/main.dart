@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/onboardingScreen.dart';
+import 'package:my_greenhouse/UI/onboardingscreen.dart';
 
 void main() {
   // ignore: prefer_const_constructors

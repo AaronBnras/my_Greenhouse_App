@@ -76,31 +76,31 @@ class SignIn extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          PageTransition(
-                              child: const ForgotPassword(),
-                              type: PageTransitionType.bottomToTop));
-                    },
-                    child: Center(
-                      child: Text.rich(
-                        TextSpan(children: [
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text.rich(TextSpan(children: [
                           TextSpan(
-                            text: 'Forgot Password? ',
-                            style: TextStyle(
-                              color: Constants.blackColor,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'Reset Here',
-                            style: TextStyle(
-                              color: Constants.primaryColor,
-                            ),
-                          ),
-                        ]),
-                      ),
+                              text: 'Forgot Password? ',
+                              style: TextStyle(color: Constants.blackColor))
+                        ])),
+                        GestureDetector(
+                            onTap: () => Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                    child: const ForgotPassword(),
+                                    type: PageTransitionType.bottomToTop)),
+                            child: Center(
+                                child: Text.rich(TextSpan(children: [
+                              TextSpan(
+                                  text: 'Reset Here',
+                                  style: TextStyle(
+                                    color: Constants.primaryColor,
+                                    fontWeight: FontWeight.w600,
+                                  ))
+                            ]))))
+                      ],
                     ),
                   ),
                   const SizedBox(
@@ -131,7 +131,7 @@ class SignIn extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 30,
-                          child: Image.asset('../assets/Images/google.png'),
+                          child: Image.asset('assets/Images/google.png'),
                         ),
                         Text(
                           'Sign In with Google',
@@ -158,7 +158,7 @@ class SignIn extends StatelessWidget {
                               context,
                               PageTransition(
                                   child: const SignUp(),
-                                  type: PageTransitionType.topToBottom)),
+                                  type: PageTransitionType.bottomToTop)),
                           child: Center(
                               child: Text.rich(TextSpan(children: [
                             TextSpan(
@@ -167,16 +167,13 @@ class SignIn extends StatelessWidget {
                                   color: Constants.primaryColor,
                                   fontWeight: FontWeight.w600,
                                 ))
-                          ]))
-                          )
-                      )
+                          ]))))
                     ],
                   ))
                 ],
               ),
             ),
           ]),
-    ))
-    );
+    )));
   }
 }

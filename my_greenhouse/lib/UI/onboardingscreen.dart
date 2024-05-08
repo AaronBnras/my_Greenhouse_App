@@ -1,10 +1,7 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-
-// import 'package:my_greenhouse/UI/root-page.dart';
 import 'package:my_greenhouse/UI/screens/sign_in.dart';
 import 'package:my_greenhouse/constants.dart';
+import 'package:page_transition/page_transition.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -30,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => const SignIn()));
+                    context, PageTransition(child: const SignIn(), type: PageTransitionType.rightToLeft));
               },
               child: const Text(
                 'skip',
