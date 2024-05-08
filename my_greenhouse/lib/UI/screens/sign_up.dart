@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_greenhouse/UI/screens/widgets/custom_Textfield.dart';
+import 'package:my_greenhouse/constants.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -23,6 +25,41 @@ class SignUp extends StatelessWidget {
                     'Sign Up',
                     style:
                         TextStyle(fontSize: 35.0, fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const customtextfield(
+                      icon: Icons.alternate_email,
+                      obscureText: false,
+                      hintText: 'Enter Email'
+                  ),
+                  const customtextfield(
+                      icon: Icons.person,
+                      obscureText: false,
+                      hintText: 'Enter Full Name'
+                  ),
+                  const customtextfield(
+                      icon: Icons.lock,
+                      obscureText: false,
+                      hintText: 'Enter Password'
+                  ),
+                  const customtextfield(
+                      icon: Icons.lock,
+                      obscureText: false,
+                      hintText: 'Confirm Password'
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      width: size.width,
+                      decoration: BoxDecoration(
+                        color: Constants.primaryColor
+                      ),
+                    ),
                   )
                 ],
               ))
