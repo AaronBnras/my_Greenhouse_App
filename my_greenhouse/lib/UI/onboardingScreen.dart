@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 // import 'package:my_greenhouse/UI/root-page.dart';
-import 'package:my_greenhouse/UI/screens/Sign_in.dart';
+import 'package:my_greenhouse/UI/screens/sign_in.dart';
 import 'package:my_greenhouse/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
