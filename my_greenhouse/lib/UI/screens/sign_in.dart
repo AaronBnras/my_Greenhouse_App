@@ -15,15 +15,15 @@ class SignIn extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Material(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                  child: ListView(
+        child: Scaffold(
+            body: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ListView(
                 children: [
                   Image.asset('assets/images/signin.png'),
                   const Text(
@@ -144,37 +144,39 @@ class SignIn extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          PageTransition(
-                              child: const SignUp(),
-                              type: PageTransitionType.bottomToTop));
-                    },
-                    child: Center(
-                      child: Text.rich(TextSpan(children: [
+                  Center(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text.rich(TextSpan(children: [
                         TextSpan(
-                          text: 'New To My Greenhouse App? ',
-                          style: TextStyle(
-                            color: Constants.blackColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Register',
-                          style: TextStyle(
-                            color: Constants.primaryColor, fontWeight: FontWeight.w600
-                          ),
-                        ),
+                            text: 'New To My Greenhouse App? ',
+                            style: TextStyle(color: Constants.blackColor))
                       ])),
-                    ),
-                  )
+                      GestureDetector(
+                          onTap: () => Navigator.pushReplacement(
+                              context,
+                              PageTransition(
+                                  child: const SignUp(),
+                                  type: PageTransitionType.topToBottom)),
+                          child: Center(
+                              child: Text.rich(TextSpan(children: [
+                            TextSpan(
+                                text: 'Register',
+                                style: TextStyle(
+                                  color: Constants.primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ))
+                          ]))
+                          )
+                      )
+                    ],
+                  ))
                 ],
-              ))
-            ],
-          ),
-        ),
-      ),
+              ),
+            ),
+          ]),
+    ))
     );
   }
 }
