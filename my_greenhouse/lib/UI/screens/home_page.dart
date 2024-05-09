@@ -10,11 +10,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Material(
+    return Material(
       child: Scaffold(
-        body: Center(
-          child: Text('Home Page'),
-        )
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(top: 20),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
