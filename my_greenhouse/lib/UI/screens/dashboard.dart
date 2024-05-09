@@ -10,24 +10,11 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return const Material(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Dashboard'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: ListView(
-
-                  ))
-            ],
-          ),
-        ),
+          body: Center(
+            child: Text('Dashboard'),
+          )
       ),
     );
   }
