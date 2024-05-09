@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/UI/screens/Profile.dart';
 import 'package:my_greenhouse/UI/screens/Sign_in.dart';
@@ -5,6 +6,7 @@ import 'package:my_greenhouse/UI/screens/dashboard.dart';
 import 'package:my_greenhouse/UI/screens/home_page.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:page_transition/page_transition.dart';
+
 
 
 
@@ -22,21 +24,24 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = const [
     HomePage(),
     DashboardPage(),
-    ProfilePage()
+    ProfilePage(),
+
   ];
 
   //List of the pages icons
   List<IconData> iconList = [
     Icons.home,
     Icons.dashboard,
-    Icons.person
+    Icons.person,
+
   ];
 
   //list of the pages tittle
   List<String> tittleList = [
     'Home',
-    'Dashboard'
-    'Profile'
+    'Dashboard',
+    'Profile',
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -63,8 +68,22 @@ class _RootPageState extends State<RootPage> {
           index: _bottomNavIndex,
           children: pages,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.push(context, PageTransition(child: const SignIn(), type: PageTransitionType.rightToLeft)),
+
+        bottomNavigationBar: AnimatedBottomNavigationBar(
+          splashColor: Constants.primaryColor,
+          backgroundColor: Constants.primaryColor.withOpacity(1),
+          activeColor: Constants.blackColor,
+          inactiveColor: Colors.white.withOpacity(.7),
+          borderWidth: 10,
+          borderColor: Constants.blackColor.withOpacity(1),
+          icons: iconList,
+          activeIndex: _bottomNavIndex,
+          leftCornerRadius: 30,
+          rightCornerRadius: 30,
+          gapLocation: GapLocation.none,
+          onTap: (index) => setState(
+              () => _bottomNavIndex = index
+          ),
         ),
       ),
     );
