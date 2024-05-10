@@ -18,8 +18,14 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 padding: const EdgeInsets.only(top: 20),
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+
+                    )
+                  ],
                 ),
               )
             ],

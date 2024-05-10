@@ -53,14 +53,14 @@ class _RootPageState extends State<RootPage> {
               Text(
                 tittleList[_bottomNavIndex],
                 style: TextStyle(
-                  color: Constants.blackColor,
+                  color: Constants.textWhite,
                   fontWeight: FontWeight.w500,
                   fontSize: 24
                 ),
               )
             ],
           ),
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Constants.primaryColor,
           elevation: 0.0,
         ),
         body: IndexedStack(
