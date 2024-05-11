@@ -5,10 +5,6 @@ import 'package:my_greenhouse/UI/screens/dashboard.dart';
 import 'package:my_greenhouse/UI/screens/home_page.dart';
 import 'package:my_greenhouse/constants.dart';
 
-
-
-
-
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
 
@@ -24,7 +20,6 @@ class _RootPageState extends State<RootPage> {
     HomePage(),
     DashboardPage(),
     ProfilePage(),
-
   ];
 
   //List of the pages icons
@@ -32,7 +27,6 @@ class _RootPageState extends State<RootPage> {
     Icons.home,
     Icons.dashboard,
     Icons.person,
-
   ];
 
   //list of the pages tittle
@@ -40,7 +34,6 @@ class _RootPageState extends State<RootPage> {
     'Home',
     'Dashboard',
     'Profile',
-
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,15 +44,13 @@ class _RootPageState extends State<RootPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
               children: [
                 Text(
                   tittleList[_bottomNavIndex],
                   style: TextStyle(
                       color: Constants.primaryColor,
                       fontWeight: FontWeight.w500,
-                      fontSize: 24
-                  ),
+                      fontSize: 24),
                 ),
                 const Stack(
                   children: [
@@ -77,7 +68,6 @@ class _RootPageState extends State<RootPage> {
           // backgroundColor: Constants.primaryColor,
           elevation: 0.0,
         ),
-
         body: Container(
           padding: const EdgeInsets.only(top: 10),
           child: IndexedStack(
@@ -85,7 +75,6 @@ class _RootPageState extends State<RootPage> {
             children: pages,
           ),
         ),
-
         bottomNavigationBar: AnimatedBottomNavigationBar(
           splashColor: Constants.primaryColor,
           backgroundColor: Constants.primaryColor.withOpacity(1),
@@ -98,12 +87,9 @@ class _RootPageState extends State<RootPage> {
           leftCornerRadius: 30,
           rightCornerRadius: 30,
           gapLocation: GapLocation.none,
-          onTap: (index) => setState(
-              () => _bottomNavIndex = index
-          ),
+          onTap: (index) => setState(() => _bottomNavIndex = index),
         ),
       ),
     );
   }
 }
-
