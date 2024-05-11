@@ -16,115 +16,108 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Scaffold(
-          backgroundColor: Colors.white,
-          appBar: AppBar(
-            elevation: 0.0,
-            backgroundColor: Colors.white,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 20, top: 20),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        PageTransition(
-                            child: const SignIn(),
-                            type: PageTransitionType.rightToLeft));
-                  },
-                  child: const Text(
-                    'skip',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20, top: 20),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, PageTransition(child: const SignIn(), type: PageTransitionType.rightToLeft));
+              },
+              child: const Text(
+                'skip',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
                 ),
-              )
-            ],
-          ),
-          body: Stack(
-            alignment: Alignment.bottomCenter,
+              ),
+            ),
+          )
+        ],
+      ),
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          PageView(
+            onPageChanged: (int page) {
+              setState(() {
+                currentindex = page;
+              });
+            },
+            controller: _pageController,
             children: [
-              PageView(
-                onPageChanged: (int page) {
-                  setState(() {
-                    currentindex = page;
-                  });
-                },
-                controller: _pageController,
-                children: [
-                  createPage(
-                    image:
-                        'assets/images/black-farmer-picking-up-vegitables.png',
-                    title: Constants.titleOne,
-                    description: Constants.descriptionOne,
-                  ),
-                  createPage(
-                    image: 'assets/images/Intro-2.png',
-                    title: Constants.titleTwo,
-                    description: Constants.descriptionTwo,
-                  ),
-                  createPage(
-                    image:
-                        'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
-                    title: Constants.titleThree,
-                    description: Constants.descriptionThree,
-                  ),
-                  createPage(
-                    image:
-                        'assets/images/black-farmer-welcoming-with-thumbs-up.png',
-                    title: Constants.titleFour,
-                    description: Constants.descriptionFour,
-                  )
-                ],
+              createPage(
+                image: 'assets/images/black-farmer-picking-up-vegitables.png',
+                title: Constants.titleOne,
+                description: Constants.descriptionOne,
               ),
-              Positioned(
-                bottom: 80,
-                left: 30,
-                child: Row(
-                  children: _buildIndicator(),
-                ),
+              createPage(
+                image: 'assets/images/Intro-2.png',
+                title: Constants.titleTwo,
+                description: Constants.descriptionTwo,
               ),
-              Positioned(
-                bottom: 60,
-                right: 30,
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Constants.primaryColor),
-                  child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          if (currentindex < 3) {
-                            currentindex++;
-                            if (currentindex < 4) {
-                              _pageController.nextPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeIn);
-                            }
-                          } else {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const SignIn()));
-                          }
-                        });
-                      },
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 34,
-                        color: Colors.white,
-                      )),
-                ),
+              createPage(
+                image:
+                    'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
+                title: Constants.titleThree,
+                description: Constants.descriptionThree,
+              ),
+              createPage(
+                image:
+                    'assets/images/black-farmer-welcoming-with-thumbs-up.png',
+                title: Constants.titleFour,
+                description: Constants.descriptionFour,
               )
             ],
           ),
-        )
-      ],
+          Positioned(
+            bottom: 80,
+            left: 30,
+            child: Row(
+              children: _buildIndicator(),
+            ),
+          ),
+          Positioned(
+              bottom: 60,
+              right: 30,
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: Constants.primaryColor),
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if (currentindex < 3) {
+                          currentindex++;
+                          if (currentindex < 4) {
+                            _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeIn);
+                          }
+                        } else {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const SignIn()));
+                        }
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 34,
+                      color: Colors.white,
+                    ),
+                ),
+              ),
+          )
+        ],
+      ),
     );
   }
 
