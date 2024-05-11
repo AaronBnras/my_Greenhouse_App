@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           speed: const Duration(milliseconds: 100))
                     ],
-                    totalRepeatCount: 4,
+                    totalRepeatCount: 2,
                     pause: const Duration(milliseconds: 1000),
                     displayFullTextOnTap: true,
                     stopPauseOnTap: true,
