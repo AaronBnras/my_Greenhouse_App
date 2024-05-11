@@ -60,10 +60,27 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Constants.horizontalPadding,
                     vertical: Constants.verticalPadding),
-                child: const Row(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   Text('Welcome')
+                   Row(
+                     children: [
+                       Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           Text('Welcome'),
+                           Text('Aaron Maeda',
+                             style: TextStyle(
+                               fontSize: 24.0,
+                               fontWeight: FontWeight.w900
+                             ),
+                           ),
+                           Text('monitor our greenhouse farm')
+                         ],
+                       )
+                     ],
+                   )
                   ],
                 ) ,
               )
