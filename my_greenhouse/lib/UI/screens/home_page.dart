@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -22,7 +21,6 @@ class _HomePageState extends State<HomePage> {
                   horizontal: Constants.horizontalPadding,
                   vertical: Constants.verticalPadding),
               child: Column(
-
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Card(
@@ -71,17 +69,21 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Welcome'),
+                        const Text(
+                          'Welcome',
+                          style: TextStyle(fontSize: 18),
+                        ),
                         const Text(
                           'Aaron Maeda',
                           style: TextStyle(
-                            fontSize: 24.0,
+                            fontSize: 28.0,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
                         const Text(
                           'monitor our greenhouse farm',
                           style: TextStyle(
+                            fontSize: 18,
                             fontWeight: FontWeight.w100,
                           ),
                         ),
@@ -90,18 +92,21 @@ class _HomePageState extends State<HomePage> {
                           thickness: 1,
                           color: Colors.green.shade400,
                         ),
-                        const SizedBox(height: 10), // Add some space after the divider
+                        const SizedBox(
+                            height: 10), // Add some space after the divider
                         const Text(
                           'Sensor Devices',
                           style: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w600,
                           ),
+                        ),
+                        const SizedBox(
+                          height: 10,
                         ),
                       ],
                     ),
                   )
-
                 ],
               ),
             ),
