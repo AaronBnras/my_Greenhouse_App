@@ -53,19 +53,24 @@ class _RootPageState extends State<RootPage> {
               Text(
                 tittleList[_bottomNavIndex],
                 style: TextStyle(
-                  color: Constants.textWhite,
+                    color: Constants.textWhite,
                   fontWeight: FontWeight.w500,
                   fontSize: 24
                 ),
               )
             ],
           ),
+          // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           backgroundColor: Constants.primaryColor,
           elevation: 0.0,
         ),
-        body: IndexedStack(
-          index: _bottomNavIndex,
-          children: pages,
+
+        body: Container(
+          padding: const EdgeInsets.only(top: 10),
+          child: IndexedStack(
+            index: _bottomNavIndex,
+            children: pages,
+          ),
         ),
 
         bottomNavigationBar: AnimatedBottomNavigationBar(
