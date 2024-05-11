@@ -47,27 +47,32 @@ class _RootPageState extends State<RootPage> {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                tittleList[_bottomNavIndex],
-                style: TextStyle(
-                    color: Constants.primaryColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24
-                ),
-              ),
-              const Stack(
-                children: [
-                  // Your RootPage content here
-                  Positioned.fill(
-                    child: DashboardPage(),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Text(
+                  tittleList[_bottomNavIndex],
+                  style: TextStyle(
+                      color: Constants.primaryColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24
                   ),
-                ],
-              )
-            ],
+                ),
+                const Stack(
+                  children: [
+                    // Your RootPage content here
+                    Positioned.fill(
+                      child: DashboardPage(),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
+
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           // backgroundColor: Constants.primaryColor,
           elevation: 0.0,

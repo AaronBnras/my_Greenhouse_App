@@ -7,6 +7,9 @@ class Constants {
   static var textWhite = Colors.white;
   static var cardColor = const Color(0xffF5DEB3);
 
+  static double horizontalPadding =  15.0;
+  static double verticalPadding =  10.0;
+
   //Onboarding texts
   static var titleOne = "Welcome To My GreenHouse App";
   static var descriptionOne =
