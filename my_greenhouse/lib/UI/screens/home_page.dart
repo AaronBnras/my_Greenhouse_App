@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
                   horizontal: Constants.horizontalPadding,
                   vertical: Constants.verticalPadding),
               child: Column(
+
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Card(
@@ -29,7 +30,10 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(20.0)),
                     elevation: 10,
                     child: Container(
-                      color: Constants.cardColor.withOpacity(0.2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Constants.cardColor,
+                      ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: Constants.horizontalPadding,
@@ -60,50 +64,44 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Constants.horizontalPadding,
-                        vertical: 5.0),
-                    child: const Column(
+                      horizontal: Constants.horizontalPadding,
+                      vertical: 5.0,
+                    ),
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Welcome'),
-                                Text('Aaron Maeda',
-                                  style: TextStyle(
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.w900
-                                  ),
-                                ),
-                                Text('monitor our greenhouse farm',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w100
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                // Divider(
-                                //   height: 10,
-                                //   thickness: 200,
-                                //   color: Colors.green,
-                                //   indent: 2,
-                                // ),
-                                Text('Sensor Devices',
-                                  style: TextStyle(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            )
-                          ],
-                        )
+                        const Text('Welcome'),
+                        const Text(
+                          'Aaron Maeda',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const Text(
+                          'monitor our greenhouse farm',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w100,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.green.shade400,
+                        ),
+                        const SizedBox(height: 10), // Add some space after the divider
+                        const Text(
+                          'Sensor Devices',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ],
-                    ) ,
+                    ),
                   )
+
                 ],
               ),
             ),

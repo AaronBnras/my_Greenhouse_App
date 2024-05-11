@@ -5,9 +5,9 @@ class Constants {
   static var primaryColor = const Color(0xff296e48);
   static var blackColor = Colors.black54;
   static var textWhite = Colors.white;
-  static var cardColor = const Color(0xffF5DEB3);
+  static var cardColor =  Colors.green.shade400;
 
-  static double horizontalPadding =  15.0;
+ static double horizontalPadding =  15.0;
   static double verticalPadding =  10.0;
 
   //Onboarding texts
