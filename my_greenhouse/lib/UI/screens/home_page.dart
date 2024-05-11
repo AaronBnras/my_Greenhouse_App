@@ -78,7 +78,25 @@ class _HomePageState extends State<HomePage> {
                                       fontWeight: FontWeight.w900
                                   ),
                                 ),
-                                Text('monitor our greenhouse farm')
+                                Text('monitor our greenhouse farm',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w100
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                // Divider(
+                                //   height: 10,
+                                //   thickness: 200,
+                                //   color: Colors.green,
+                                //   indent: 2,
+                                // ),
+                                Text('Sensor Devices',
+                                  style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500),
+                                )
                               ],
                             )
                           ],
