@@ -53,15 +53,23 @@ class _RootPageState extends State<RootPage> {
               Text(
                 tittleList[_bottomNavIndex],
                 style: TextStyle(
-                    color: Constants.textWhite,
+                    color: Constants.primaryColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 24
                 ),
+              ),
+              const Stack(
+                children: [
+                  // Your RootPage content here
+                  Positioned.fill(
+                    child: DashboardPage(),
+                  ),
+                ],
               )
             ],
           ),
-          // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          backgroundColor: Constants.primaryColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          // backgroundColor: Constants.primaryColor,
           elevation: 0.0,
         ),
 
