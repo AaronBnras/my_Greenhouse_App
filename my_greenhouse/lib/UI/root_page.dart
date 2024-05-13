@@ -63,7 +63,7 @@ class _RootPageState extends State<RootPage> {
               ],
             ),
           ),
-
+          scrolledUnderElevation: 0.0,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           // backgroundColor: Constants.primaryColor,
           elevation: 0.0,

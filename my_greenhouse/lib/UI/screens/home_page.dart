@@ -1,8 +1,8 @@
 //import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:my_greenhouse/constants.dart';
+import 'package:my_greenhouse/models/sensors_box.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,11 +15,10 @@ class _HomePageState extends State<HomePage> {
   //List Of devices and Sensors
 
   List myDevices = [
-    ['Temperature', const Icon(BoxIcons.bxs_thermometer)],
-    ['Humidity', const Icon(BoxIcons.bxs_droplet)],
-    ['Water Level', const Icon(BoxIcons.bxl_periscope)],
-    ['Soil Moisture', const Icon(BoxIcons.bx_fast_forward)],
-
+    ['Temperature', '../assets/Images/temperature.png', true],
+    ['Humidity', '../assets/Images/humidity.png', false],
+    ['Water Level', '../assets/Images/water-tanks.png', false],
+    ['Soil Moisture', '../assets/Images/Soil.png', false],
   ];
   @override
   Widget build(BuildContext context) {
@@ -114,8 +113,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: Constants.horizontalPadding,
-                            vertical: Constants.verticalPadding),
+                          horizontal: Constants.horizontalPadding,
+                        ),
                         child: const Text(
                           'Sensor and Devices',
                           style: TextStyle(
@@ -132,10 +131,12 @@ class _HomePageState extends State<HomePage> {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2),
                           itemBuilder: (context, index) {
-                            return Padding(
+                            return  Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                color: Colors.blue,
+                              child: SensorBox(
+                                Sensor: myDevices[index][0],
+                                iconPath: myDevices[index][1],
+                                Status: myDevices[index][2],
                               ),
                             );
                           },
