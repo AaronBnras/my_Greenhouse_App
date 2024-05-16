@@ -131,11 +131,11 @@ class _HomePageState extends State<HomePage> {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   crossAxisSpacing: 8,
-                                  childAspectRatio: 10/10
+                                  childAspectRatio: 11/10
                               ),
                           itemBuilder: (context, index) {
                             return  Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: SensorBox(
                                 sensor: myDevices[index][0],
                                 iconPath: myDevices[index][1],
