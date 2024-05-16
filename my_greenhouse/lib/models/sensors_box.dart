@@ -30,7 +30,7 @@ class SensorBox extends StatelessWidget {
                 ],
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(),
+                border: Border.all(color: Colors.green.shade400, width: 3),
               shape: BoxShape.rectangle
             ),
             child: Column(
@@ -118,3 +118,5 @@ class SensorBox extends StatelessWidget {
     );
   }
 }
+
+
