@@ -18,7 +18,7 @@ class SensorBox extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(3.0),
           child: Container(
             decoration: BoxDecoration(
                 boxShadow: [
