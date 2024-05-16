@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                           itemBuilder: (context, index) {
                             return  Padding(
-                              padding: const EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(3.0),
                               child: SensorBox(
                                 sensor: myDevices[index][0],
                                 iconPath: myDevices[index][1],
