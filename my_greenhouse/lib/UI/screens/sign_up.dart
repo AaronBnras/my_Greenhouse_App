@@ -12,15 +12,16 @@ class SignUp extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Material(
-        child: Scaffold(
-      body: Padding(
+      child: Scaffold(
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: ListView(children: [
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
                     Image.asset('assets/images/signup.png'),
                     const Text(
                       'Sign Up',
@@ -83,31 +84,37 @@ class SignUp extends StatelessWidget {
                                 style: TextStyle(color: Constants.blackColor))
                           ])),
                           GestureDetector(
-                              onTap: () => Navigator.pushReplacement(
-                                  context,
-                                  PageTransition(
-                                      child: const SignIn(),
-                                      type: PageTransitionType.topToBottom)),
-                              child: Center(
-                                  child: Text.rich(TextSpan(children: [
+                            onTap: () => Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                    child: const SignIn(),
+                                    type: PageTransitionType.topToBottom)),
+                            child: Center(
+                              child: Text.rich(
                                 TextSpan(
-                                    text: 'Login',
-                                    style: TextStyle(
-                                      color: Constants.primaryColor,
-                                      fontWeight: FontWeight.w600,
+                                  children: [
+                                    TextSpan(
+                                      text: 'Login',
+                                      style: TextStyle(
+                                        color: Constants.primaryColor,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     )
-                                )
-                              ]))
-                              )
-                          )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     )
-                  ]),
-                )
-              ]
-          )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }

@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: ListView(
         children: [
           SafeArea(
@@ -126,9 +126,11 @@ class _HomePageState extends State<HomePage> {
                         height: MediaQuery.of(context).size.height * 0.6,
                         child: GridView.builder(
                           itemCount: myDevices.length,
+                          physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2),
+                                  crossAxisCount: 2,
+                              ),
                           itemBuilder: (context, index) {
                             return  Padding(
                               padding: const EdgeInsets.all(8.0),
