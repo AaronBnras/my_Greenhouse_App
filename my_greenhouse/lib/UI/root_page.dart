@@ -64,11 +64,12 @@ class _RootPageState extends State<RootPage> {
             ),
           ),
           scrolledUnderElevation: 0.0,
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Colors.grey[300],
           // backgroundColor: Constants.primaryColor,
           elevation: 0.0,
         ),
         body: Container(
+          color: Colors.grey[300],
           padding: const EdgeInsets.only(top: 10),
           child: IndexedStack(
             index: _bottomNavIndex,

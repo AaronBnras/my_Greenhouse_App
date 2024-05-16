@@ -14,15 +14,15 @@ class _HomePageState extends State<HomePage> {
   //List Of devices and Sensors
 
   List myDevices = [
-    ['Temperature', '../assets/Images/temperature.png', true],
-    ['Humidity', '../assets/Images/humidity.png', false],
-    ['Water Level', '../assets/Images/water-tanks.png', false],
-    ['Soil Moisture', '../assets/Images/Soil.png', false],
+    ['Temperature', 'assets/images/temperature.png', '45%' ],
+    ['Humidity', 'assets/images/humidity.png', '75%'],
+    ['Water Level', 'assets/images/water-tanks.png', '50%'],
+    ['Soil Moisture', 'assets/images/Soil.png', '30%'],
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[300],
       body: ListView(
         children: [
           SafeArea(
@@ -133,9 +133,9 @@ class _HomePageState extends State<HomePage> {
                             return  Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SensorBox(
-                                Sensor: myDevices[index][0],
+                                sensor: myDevices[index][0],
                                 iconPath: myDevices[index][1],
-                                Status: myDevices[index][2],
+                                status: myDevices[index][2],
                               ),
                             );
                           },
