@@ -93,10 +93,10 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             const Text(
-                              'monitor our greenhouse farm',
+                              'monitor your greenhouse farm',
                               style: TextStyle(
                                 fontSize: 18,
-                                fontWeight: FontWeight.w100,
+                                fontWeight: FontWeight.w300,
                               ),
                             ),
                             const SizedBox(height: 10),
