@@ -37,12 +37,62 @@ class SensorBox extends StatelessWidget {
                       child: Text(
                         sensor,
                         style: const TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.italic),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Constants.horizontalPadding,
+                        vertical: Constants.verticalPadding),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Image.asset(
+                              iconPath,
+                              height: 80,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration:
+                                  BoxDecoration(
+                                    // color: Colors.green[100],
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                              height: 60,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(1.5),
+                                    child: Text(
+                                      status,
+                                      style: const TextStyle(
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               )
               // icons
