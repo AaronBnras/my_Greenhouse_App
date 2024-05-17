@@ -101,7 +101,8 @@ class SensorBox extends StatelessWidget {
                                         ),
                                       )
                                     ],
-                                  ))
+                                  ),
+                              )
                             ],
                           ),
                         ],

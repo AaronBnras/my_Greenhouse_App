@@ -115,13 +115,14 @@ class _HomePageState extends State<HomePage> {
                           horizontal: Constants.horizontalPadding,
                         ),
                         child: const Text(
-                          'Sensor and Devices',
+                          'Sensors',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10,),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.6,
                         child: GridView.builder(
