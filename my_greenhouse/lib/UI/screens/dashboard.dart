@@ -12,26 +12,24 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-          body: ListView(
-            children: const [
-              SafeArea(
-                  child: Column(
+        body: ListView(
+          children: const [
+            SafeArea(
+              child: Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-
-                      ],
+                      children: <Widget>[],
                     ),
-
                   )
                 ],
-              ))
-            ],
-          )
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
