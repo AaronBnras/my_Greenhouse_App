@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/root_page.dart';
-import 'package:my_greenhouse/UI/screens/dashboard.dart';
 import 'package:my_greenhouse/constants.dart';
-import 'package:page_transition/page_transition.dart';
 
 class TemperatureInsight extends StatefulWidget {
   const TemperatureInsight({super.key});
