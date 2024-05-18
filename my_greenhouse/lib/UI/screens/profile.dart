@@ -40,10 +40,10 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'John Doe',
+                        'Aaron Maeda',
                         style: TextStyle(
                           color: Constants.blackColor,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       SizedBox(
@@ -53,7 +53,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'johndoe@gmail.com',
+                  'aaronmaeda@gmail.com',
                   style: TextStyle(
                     color: Constants.blackColor.withOpacity(.3),
                   ),
@@ -67,26 +67,26 @@ class ProfilePage extends StatelessWidget {
                   child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ProfileWidget(
-                        icon: Icons.person,
-                        title: 'My Profile',
-                      ),
+                      // ProfileWidget(
+                      //   icon: Icons.person,
+                      //   title: 'My Profile',
+                      // ),
                       ProfileWidget(
                         icon: Icons.settings,
                         title: 'Settings',
                       ),
-                      ProfileWidget(
-                        icon: Icons.notifications,
-                        title: 'Notifications',
-                      ),
-                      ProfileWidget(
-                        icon: Icons.chat,
-                        title: 'FAQs',
-                      ),
-                      ProfileWidget(
-                        icon: Icons.share,
-                        title: 'Share',
-                      ),
+                      // ProfileWidget(
+                      //   icon: Icons.notifications,
+                      //   title: 'Notifications',
+                      // ),
+                      // ProfileWidget(
+                      //   icon: Icons.chat,
+                      //   title: 'FAQs',
+                      // ),
+                      // ProfileWidget(
+                      //   icon: Icons.share,
+                      //   title: 'Share',
+                      // ),
                       ProfileWidget(
                         icon: Icons.logout,
                         title: 'Log Out',

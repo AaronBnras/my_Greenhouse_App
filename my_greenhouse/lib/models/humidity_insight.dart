@@ -41,7 +41,23 @@ class _HumidityInsightState extends State<HumidityInsight> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    color: Colors.blue,
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 2)
+                        )
+                      ],
+                      border: Border.all(
+                          color: Colors.green.shade400,
+                          width: 3
+                      ),
+                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white,
+                    ),
                     child: const Row(
                       children: [
                         Padding(
@@ -60,7 +76,23 @@ class _HumidityInsightState extends State<HumidityInsight> {
                   ),
                   const SizedBox(height: 10,),
                   Container(
-                    color: Colors.blue,
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 2)
+                        )
+                      ],
+                      border: Border.all(
+                          color: Colors.green.shade400,
+                          width: 3
+                      ),
+                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white,
+                    ),
                     child: const Row(
                       children: [
                         Padding(
@@ -78,25 +110,6 @@ class _HumidityInsightState extends State<HumidityInsight> {
                     ),
                   ),
                   const SizedBox(height: 10,),
-                  // Container(
-                  //   color: Colors.blue,
-                  //   child: const Row(
-                  //     children: [
-                  //       Padding(
-                  //         padding: EdgeInsets.all(1.5),
-                  //         child: Text(
-                  //           'Humidity in Fahrenheit: ${90}˚F',
-                  //           overflow: TextOverflow.ellipsis,
-                  //           style: TextStyle(
-                  //             fontSize: 20.0,
-                  //             fontWeight: FontWeight.w500,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-
                 ],
               ),
             )
