@@ -46,7 +46,7 @@ class _TemperatureInsightState extends State<TemperatureInsight> {
                       Padding(
                         padding: EdgeInsets.all(1.5),
                         child: Text(
-                          'Status: ${'Normal'} ',
+                          'Status : ${'Normal'} ',
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 20.0,
@@ -65,7 +65,7 @@ class _TemperatureInsightState extends State<TemperatureInsight> {
                       Padding(
                         padding: EdgeInsets.all(1.5),
                         child: Text(
-                          'Temperature in Centigrade: ${20}˚C ',
+                          'Temperature in Centigrade : ${20}˚C ',
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 20.0,
@@ -84,7 +84,7 @@ class _TemperatureInsightState extends State<TemperatureInsight> {
                       Padding(
                         padding: EdgeInsets.all(1.5),
                         child: Text(
-                          'Temperature in Fahrenheit: ${90}˚F',
+                          'Temperature in Fahrenheit : ${90}˚F',
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 20.0,

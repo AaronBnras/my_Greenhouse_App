@@ -22,7 +22,7 @@ class _HumidityInsightState extends State<HumidityInsight> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Temperature',
+                    'Humidity',
                     style: TextStyle(
                       color: Constants.primaryColor,
                       fontWeight: FontWeight.w500,
@@ -47,7 +47,7 @@ class _HumidityInsightState extends State<HumidityInsight> {
                         Padding(
                           padding: EdgeInsets.all(1.5),
                           child: Text(
-                            'Status: ${'Normal'} ',
+                            'Status : ${'Normal'} ',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 20.0,
@@ -66,7 +66,7 @@ class _HumidityInsightState extends State<HumidityInsight> {
                         Padding(
                           padding: EdgeInsets.all(1.5),
                           child: Text(
-                            'Temperature in Centigrade: ${20}˚C ',
+                            'Humidity : ${20}˚C ',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 20.0,
@@ -78,24 +78,24 @@ class _HumidityInsightState extends State<HumidityInsight> {
                     ),
                   ),
                   const SizedBox(height: 10,),
-                  Container(
-                    color: Colors.blue,
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(1.5),
-                          child: Text(
-                            'Temperature in Fahrenheit: ${90}˚F',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   color: Colors.blue,
+                  //   child: const Row(
+                  //     children: [
+                  //       Padding(
+                  //         padding: EdgeInsets.all(1.5),
+                  //         child: Text(
+                  //           'Humidity in Fahrenheit: ${90}˚F',
+                  //           overflow: TextOverflow.ellipsis,
+                  //           style: TextStyle(
+                  //             fontSize: 20.0,
+                  //             fontWeight: FontWeight.w500,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
 
                 ],
               ),

@@ -21,7 +21,7 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Temperature',
+                    'Water Level',
                     style: TextStyle(
                       color: Constants.primaryColor,
                       fontWeight: FontWeight.w500,
@@ -46,7 +46,7 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
                         Padding(
                           padding: EdgeInsets.all(1.5),
                           child: Text(
-                            'Status: ${'Normal'} ',
+                            'Status : ${'Full'} ',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 20.0,
@@ -65,7 +65,7 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
                         Padding(
                           padding: EdgeInsets.all(1.5),
                           child: Text(
-                            'Temperature in Centigrade: ${20}˚C ',
+                            'Water Level : ${20}% ',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 20.0,
@@ -77,24 +77,24 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
                     ),
                   ),
                   const SizedBox(height: 10,),
-                  Container(
-                    color: Colors.blue,
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(1.5),
-                          child: Text(
-                            'Temperature in Fahrenheit: ${90}˚F',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   color: Colors.blue,
+                  //   child: const Row(
+                  //     children: [
+                  //       Padding(
+                  //         padding: EdgeInsets.all(1.5),
+                  //         child: Text(
+                  //           'Water Level in Fahrenheit: ${90}˚F',
+                  //           overflow: TextOverflow.ellipsis,
+                  //           style: TextStyle(
+                  //             fontSize: 20.0,
+                  //             fontWeight: FontWeight.w500,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
 
                 ],
               ),
