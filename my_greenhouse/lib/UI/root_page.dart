@@ -1,6 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/screens/Profile.dart';
+import 'package:my_greenhouse/UI/screens/profile.dart';
 import 'package:my_greenhouse/UI/screens/dashboard.dart';
 import 'package:my_greenhouse/UI/screens/home_page.dart';
 import 'package:my_greenhouse/constants.dart';
