@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
-import 'package:my_greenhouse/models/temperature._box.dart';
+import 'package:my_greenhouse/models/temperature._insight.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
@@ -130,7 +130,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureBox(), type: PageTransitionType.bottomToTop)),
+                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureInsight(), type: PageTransitionType.bottomToTop)),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
@@ -237,7 +237,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureBox(), type: PageTransitionType.bottomToTop)),
+                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureInsight(), type: PageTransitionType.bottomToTop)),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
@@ -345,7 +345,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureBox(), type: PageTransitionType.bottomToTop)),
+                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureInsight(), type: PageTransitionType.bottomToTop)),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
@@ -452,7 +452,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureBox(), type: PageTransitionType.bottomToTop)),
+                            onTap: () => Navigator.pushReplacement(context, PageTransition(child: const TemperatureInsight(), type: PageTransitionType.bottomToTop)),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
