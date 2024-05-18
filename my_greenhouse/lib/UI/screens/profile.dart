@@ -8,7 +8,8 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
+    return Material(
+      child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(16),
@@ -28,7 +29,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   child: const CircleAvatar(
                     radius: 60,
-                    backgroundImage: ExactAssetImage('assets/images/profile.jpg'),
+                    backgroundImage: ExactAssetImage('assets/images/User.png'),
                   ),
                 ),
                 const SizedBox(
@@ -97,6 +98,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
         ),
+      ),
     );
   }
 }
