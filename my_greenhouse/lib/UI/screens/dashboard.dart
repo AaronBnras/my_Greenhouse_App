@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
+import 'package:my_greenhouse/models/humidity_insight.dart';
+import 'package:my_greenhouse/models/soil_moisture_insight.dart';
 import 'package:my_greenhouse/models/temperature._insight.dart';
+import 'package:my_greenhouse/models/water_level_insight.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -236,7 +239,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const TemperatureInsight())),
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const HumidityInsight())),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
@@ -344,7 +347,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const TemperatureInsight())),
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const SoilMoistureInsight())),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
@@ -451,7 +454,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const TemperatureInsight())),
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const WaterLevelInsight())),
                             child: Container(
                               decoration: BoxDecoration(
                                   boxShadow: [
