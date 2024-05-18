@@ -36,20 +36,66 @@ class _TemperatureInsightState extends State<TemperatureInsight> {
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: Constants.horizontalPadding, vertical: Constants.verticalPadding),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   color: Colors.blue,
-                  child: const Column(
+                  child: const Row(
                     children: [
-                      Row(
-                        children: [
-
-                        ],
-                      )
+                      Padding(
+                        padding: EdgeInsets.all(1.5),
+                        child: Text(
+                          'Status: ${'Normal'} ',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                )
+                ),
+                const SizedBox(height: 10,),
+                Container(
+                  color: Colors.blue,
+                  child: const Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(1.5),
+                        child: Text(
+                          'Temperature in Centigrade: ${20}˚C ',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10,),
+                Container(
+                  color: Colors.blue,
+                  child: const Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(1.5),
+                        child: Text(
+                          'Temperature in Fahrenheit: ${90}˚F',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
               ],
             ),
           )
