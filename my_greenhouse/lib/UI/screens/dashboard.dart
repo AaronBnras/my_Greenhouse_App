@@ -588,7 +588,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Column(
                                     children: [
                                       Image.asset(
-                                        'assets/images/fan.png',
+                                        'assets/images/Fans.png',
                                         fit: BoxFit.contain,
                                         height: 80,
                                       ),
