@@ -41,6 +41,7 @@ dependencies:
   page_transition: ^2.0.5
   icons_plus: ^5.0.0
   sleek_circular_slider: ^2.0.1
+  fl_chart: ^0.68.0
 #  gauge_indicator: ^0.4.3
 
 
