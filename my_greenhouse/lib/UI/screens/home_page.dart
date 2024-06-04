@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     sensorDataFuture = thingSpeakService.fetchData();
-    _timer = Timer.periodic(const Duration(minutes: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 30), (timer) {
       setState(() {
         sensorDataFuture = thingSpeakService.fetchData();
       });
@@ -158,34 +158,41 @@ class _HomePageState extends State<HomePage> {
                           } else {
                             final sensorData = snapshot.data!;
                             List myDevices = [
-                              ['Temperature', 'assets/images/temperature.png', '${sensorData.temperature}°C'],
+                              ['Temperature', 'assets/images/temperature.png', '${sensorData.temperature.toStringAsFixed(1)}°C'],
                               ['Humidity', 'assets/images/humidity.png', '${sensorData.humidity}%'],
-                              ['Water Level', 'assets/images/water-tanks.png', '${sensorData.waterLevel}%'],
+                              ['Water Level', 'assets/images/water-tanks.png', '${sensorData.waterLevel.toStringAsFixed(1)}%'],
                               ['Soil Moisture', 'assets/images/Soil.png', '${sensorData.soilMoisture}%'],
                             ];
-                            return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.6,
-                              child: GridView.builder(
-                                itemCount: myDevices.length,
-                                physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                            return SingleChildScrollView(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: MediaQuery.of(context).size.height * 0.6,
+                                  maxHeight: double.infinity,
+                                ),
+                                child: GridView.builder(
+                                  itemCount: myDevices.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 8,
-                                    childAspectRatio: 11/10
+                                    childAspectRatio: 11 / 10,
+                                  ),
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.all(3.0),
+                                      child: SensorBox(
+                                        sensor: myDevices[index][0],
+                                        iconPath: myDevices[index][1],
+                                        value: myDevices[index][2],
+                                      ),
+                                    );
+                                  },
                                 ),
-                                itemBuilder: (context, index) {
-                                  return  Padding(
-                                    padding: const EdgeInsets.all(1.0),
-                                    child: SensorBox(
-                                      sensor: myDevices[index][0],
-                                      iconPath: myDevices[index][1],
-                                      status: myDevices[index][2],
-                                    ),
-                                  );
-                                },
                               ),
                             );
+
                           }
                         },
                       ),

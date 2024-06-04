@@ -5,13 +5,35 @@ import 'package:my_greenhouse/constants.dart';
 class SensorBox extends StatelessWidget {
   final String sensor;
   final String iconPath;
-  final String status;
+  final String value;
 
   const SensorBox(
       {super.key,
       required this.sensor,
       required this.iconPath,
-      required this.status});
+      required this.value});
+
+  Color getTextColor(String sensor, String value) {
+    // Extract numerical part from the value string
+    String numericalValue = value.replaceAll(RegExp(r'[^0-9.]'), '');
+
+    // Parse the numerical part as a double
+    double doubleValue = double.tryParse(numericalValue) ?? 0.0;
+
+    // Determine text color based on the sensor and value
+    switch (sensor) {
+      case 'Temperature':
+        return doubleValue > 30.0 ? Colors.red : Colors.green;
+      case 'Humidity':
+        return doubleValue > 70.0 ? Colors.red : Colors.green;
+      case 'Water Level':
+        return doubleValue < 50.0 ? Colors.red : Colors.green;
+      case 'Soil Moisture':
+        return doubleValue < 30.0 ? Colors.red : Colors.green;
+      default:
+        return Colors.black; // Default color
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +96,13 @@ class SensorBox extends StatelessWidget {
                               Image.asset(
                                 iconPath,
                                 fit: BoxFit.contain,
-                                height: 80,
+                                height: 65,
                               ),
                             ],
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
                                   decoration: BoxDecoration(
@@ -92,11 +115,12 @@ class SensorBox extends StatelessWidget {
                                       Padding(
                                         padding: const EdgeInsets.all(1.5),
                                         child: Text(
-                                          status,
+                                          value,
                                           overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             fontSize: 24.0,
                                             fontWeight: FontWeight.w900,
+                                            color: getTextColor(sensor, value)
                                           ),
                                         ),
                                       )
