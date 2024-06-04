@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "420052989314",
+    "project_id": "greenhouse-farm",
+    "storage_bucket": "greenhouse-farm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420052989314:android:f2ec887f96b4a48a760b9b",
+        "android_client_info": {
+          "package_name": "com.example.my_greenhouse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoUnwmATe_hHvO2zw9poCmLwtiI9c3D_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
