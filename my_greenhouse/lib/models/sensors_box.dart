@@ -118,7 +118,7 @@ class SensorBox extends StatelessWidget {
                                           value,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: 22.0,
+                                            fontSize: 21.0,
                                             fontWeight: FontWeight.w900,
                                             color: getTextColor(sensor, value)
                                           ),
