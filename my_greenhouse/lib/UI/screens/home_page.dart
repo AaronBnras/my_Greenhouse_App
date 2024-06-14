@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_greenhouse/UI/screens/widgets/show_popup.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
 import 'package:my_greenhouse/data/thingspeak_service.dart';
 import 'package:my_greenhouse/models/sensors_box.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   final ThingspeakService thingSpeakService = ThingspeakService(
     channelID: '2562505', // Replace with your ThingSpeak Channel ID
     readAPIkey: 'WBTWK03HLNA3N339', // Replace with your ThingSpeak Read API Key
-
   );
 
   late Future<SensorData?> sensorDataFuture;
@@ -44,6 +43,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                         speed:
-                                        const Duration(milliseconds: 100))
+                                            const Duration(milliseconds: 100))
                                   ],
                                   totalRepeatCount: 2,
                                   pause: const Duration(milliseconds: 1000),
@@ -137,6 +137,57 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.symmetric(
                           horizontal: Constants.horizontalPadding,
                         ),
+                        child: GestureDetector(
+                          onTap: () {
+                            showPopup(context);
+                          },
+                          child: Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.green.shade400,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 20),
+                            child: const Center(
+                                child: Text(
+                              'Setup Device',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18.0),
+                            )),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          children: <Widget>[
+                            const Expanded(
+                              child: TextField(
+                                // controller: _controller,
+                                decoration: InputDecoration(
+                                  labelText: 'Enter System ID',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Connect'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Constants.horizontalPadding,
+                        ),
                         child: const Text(
                           'Sensors',
                           style: TextStyle(
@@ -145,36 +196,61 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       FutureBuilder<SensorData?>(
                         future: sensorDataFuture,
                         builder: (context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.waiting) {
-                            return const Center(child: CircularProgressIndicator());
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                                child: CircularProgressIndicator());
                           } else if (snapshot.hasError) {
-                            return Center(child: Text('Error: ${snapshot.error}'));
-                          } else if (!snapshot.hasData || snapshot.data == null) {
-                            return const Center(child: Text('No data available'));
+                            return Center(
+                                child: Text('Error: ${snapshot.error}'));
+                          } else if (!snapshot.hasData ||
+                              snapshot.data == null) {
+                            return const Center(
+                                child: Text('No data available'));
                           } else {
                             final sensorData = snapshot.data!;
                             List myDevices = [
-                              ['Temperature', 'assets/images/temperature.png', '${sensorData.temperature.toStringAsFixed(1)}°C'],
-                              ['Humidity', 'assets/images/humidity.png', '${sensorData.humidity}%'],
-                              ['Water Level', 'assets/images/water-tanks.png', '${sensorData.waterLevel.toStringAsFixed(1)}%'],
-                              ['Soil Moisture', 'assets/images/Soil.png', '${sensorData.soilMoisture}%'],
+                              [
+                                'Temperature',
+                                'assets/images/temperature.png',
+                                '${sensorData.temperature.toStringAsFixed(1)}°C'
+                              ],
+                              [
+                                'Humidity',
+                                'assets/images/humidity.png',
+                                '${sensorData.humidity}%'
+                              ],
+                              [
+                                'Water Level',
+                                'assets/images/water-tanks.png',
+                                '${sensorData.waterLevel.toStringAsFixed(1)}%'
+                              ],
+                              [
+                                'Soil Moisture',
+                                'assets/images/Soil.png',
+                                '${sensorData.soilMoisture}%'
+                              ],
                             ];
                             return SingleChildScrollView(
                               physics: const AlwaysScrollableScrollPhysics(),
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
-                                  minHeight: MediaQuery.of(context).size.height * 0.6,
+                                  minHeight:
+                                      MediaQuery.of(context).size.height * 0.6,
                                   maxHeight: double.infinity,
                                 ),
                                 child: GridView.builder(
                                   itemCount: myDevices.length,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 8,
                                     childAspectRatio: 11 / 10,
@@ -192,7 +268,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             );
-
                           }
                         },
                       ),
