@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "420052989314",
+    "firebase_url": "https://greenhouse-farm-default-rtdb.firebaseio.com",
     "project_id": "greenhouse-farm",
     "storage_bucket": "greenhouse-farm.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:420052989314:android:fd883a080d4ed13b760b9b",
+        "mobilesdk_app_id": "1:420052989314:android:76df81c5f4120b36760b9b",
         "android_client_info": {
           "package_name": "com.example.my_greenhouse"
         }
