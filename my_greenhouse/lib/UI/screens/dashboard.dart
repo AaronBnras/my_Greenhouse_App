@@ -1,9 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
-import 'package:my_greenhouse/data/thingspeak_service.dart';
+import 'package:my_greenhouse/data/firebase_service.dart';
 import 'package:my_greenhouse/models/humidity_insight.dart';
 import 'package:my_greenhouse/models/soil_moisture_insight.dart';
 import 'package:my_greenhouse/models/temperature._insight.dart';
@@ -18,28 +16,11 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  final ThingspeakService thingSpeakService = ThingspeakService(
-    channelID: '2562505', // Replace with your ThingSpeak Channel ID
-    readAPIkey: 'WBTWK03HLNA3N339', // Replace with your ThingSpeak Read API Key
-  );
-  late Future<SensorData?> sensorDataFuture;
-  late Timer _timer;
+  final FirebaseService firebaseService = FirebaseService();
 
   @override
   void initState() {
     super.initState();
-    sensorDataFuture = thingSpeakService.fetchData();
-    _timer = Timer.periodic(const Duration(seconds: 30), (timer) {
-      setState(() {
-        sensorDataFuture = thingSpeakService.fetchData();
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
   }
 
   @override
@@ -150,8 +131,8 @@ class _DashboardPageState extends State<DashboardPage> {
                         color: Colors.white,
                         border:
                             Border.all(color: Colors.green.shade400, width: 3)),
-                    child: FutureBuilder<SensorData?>(
-                      future: sensorDataFuture,
+                    child: StreamBuilder<SensorData?>(
+                      stream: firebaseService.sensorDataStream,
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
@@ -256,7 +237,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                                             .w600),
                                                             modifier:
                                                                 (double value) {
-                                                              return '${sensorData.temperature}˚C';
+                                                              return '${sensorData.temperatureC}˚C';
                                                             }),
                                                     startAngle: 90,
                                                     angleRange: 360,
@@ -264,7 +245,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     animationEnabled: true),
                                             min: 0,
                                             max: 100,
-                                            initialValue: sensorData.temperature,
+                                            initialValue:
+                                                sensorData.temperatureC,
                                           ),
                                         ],
                                       ),
@@ -563,7 +545,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     animationEnabled: true),
                                             min: 0,
                                             max: 100,
-                                            initialValue: sensorData.soilMoisture,
+                                            initialValue:
+                                                sensorData.soilMoisture,
                                           ),
                                         ],
                                       ),
@@ -768,18 +751,21 @@ class _DashboardPageState extends State<DashboardPage> {
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 5,
-                                          blurRadius: 7,
-                                          offset: const Offset(0, 3))
-                                    ],
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(24),
-                                    border: Border.all(
-                                        color: Colors.green.shade400,
-                                        width: 2)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(24),
+                                  border: Border.all(
+                                    color: Colors.green.shade400,
+                                    width: 2,
+                                  ),
+                                ),
                                 child: Column(
                                   children: [
                                     const Row(
@@ -815,29 +801,30 @@ class _DashboardPageState extends State<DashboardPage> {
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
-                                              // color: Colors.green[100],
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
                                           height: 60,
-                                          child: const Column(
+                                          child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsets.all(1.5),
+                                                padding:
+                                                    const EdgeInsets.all(1.5),
                                                 child: Text(
-                                                  'Status: ${'On'} ',
+                                                  'Status: ${sensorData.fanStatus ? 'On' : 'Off'}',
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -856,18 +843,21 @@ class _DashboardPageState extends State<DashboardPage> {
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 5,
-                                          blurRadius: 7,
-                                          offset: const Offset(0, 3))
-                                    ],
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(24),
-                                    border: Border.all(
-                                        color: Colors.green.shade400,
-                                        width: 2)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(24),
+                                  border: Border.all(
+                                    color: Colors.green.shade400,
+                                    width: 2,
+                                  ),
+                                ),
                                 child: Column(
                                   children: [
                                     const Row(
@@ -903,35 +893,38 @@ class _DashboardPageState extends State<DashboardPage> {
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
-                                              // color: Colors.green[100],
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
                                           height: 60,
-                                          child: const Column(
+                                          child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsets.all(1.5),
+                                                padding:
+                                                    const EdgeInsets.all(1.5),
                                                 child: Text(
-                                                  'Status: ${'On'} ',
+                                                  'Status: ${sensorData.pumpStatus ? 'On' : 'Off'}',
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
                             ),
+
+                            // End water pump
                           ]);
                         }
                       },
