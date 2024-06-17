@@ -42,27 +42,30 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCSMQYx3Wni4Vk13vzEMRkMEc57Vxx1IPo',
-    appId: '1:420052989314:web:86372a415ffc290d760b9b',
+    appId: '1:420052989314:web:9a55d39fb61bd24e760b9b',
     messagingSenderId: '420052989314',
     projectId: 'greenhouse-farm',
     authDomain: 'greenhouse-farm.firebaseapp.com',
+    databaseURL: 'https://greenhouse-farm-default-rtdb.firebaseio.com/',
     storageBucket: 'greenhouse-farm.appspot.com',
-    measurementId: 'G-WYSMZD5HT1',
+    measurementId: 'G-QMNZ7FWSVL',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCoUnwmATe_hHvO2zw9poCmLwtiI9c3D_8',
-    appId: '1:420052989314:android:fd883a080d4ed13b760b9b',
+    appId: '1:420052989314:android:76df81c5f4120b36760b9b',
     messagingSenderId: '420052989314',
     projectId: 'greenhouse-farm',
+    databaseURL: 'https://greenhouse-farm-default-rtdb.firebaseio.com/',
     storageBucket: 'greenhouse-farm.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDfzfR8qkjXr6-x83coLZyedM2kwT9tUhk',
-    appId: '1:420052989314:ios:ab37c6106f247b7b760b9b',
+    appId: '1:420052989314:ios:136b7f68682fd4fe760b9b',
     messagingSenderId: '420052989314',
     projectId: 'greenhouse-farm',
+    databaseURL: 'https://greenhouse-farm-default-rtdb.firebaseio.com',
     storageBucket: 'greenhouse-farm.appspot.com',
     iosBundleId: 'com.example.myGreenhouse',
   );
@@ -78,11 +81,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyCSMQYx3Wni4Vk13vzEMRkMEc57Vxx1IPo',
-    appId: '1:420052989314:web:deff709a8f914179760b9b',
+    appId: '1:420052989314:web:d0b5387b670f7845760b9b',
     messagingSenderId: '420052989314',
     projectId: 'greenhouse-farm',
     authDomain: 'greenhouse-farm.firebaseapp.com',
+    databaseURL: 'https://greenhouse-farm-default-rtdb.firebaseio.com/',
     storageBucket: 'greenhouse-farm.appspot.com',
-    measurementId: 'G-2F56CMRXNM',
+    measurementId: 'G-FP205V53DZ',
   );
+
 }
