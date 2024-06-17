@@ -168,7 +168,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
                                       border: Border.all(
-                                          color: Colors.green.shade400,
+                                          color: (sensorData.temperatureC <= 10 || sensorData.temperatureC >= 32)
+                                              ? Colors.red.shade400
+                                              : Colors.green.shade400,
                                           width: 2)),
                                   child: Column(
                                     children: [
@@ -204,8 +206,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                                 const Color(
                                                                     0xffef6c00),
                                                             progressBarColor:
-                                                                const Color(
-                                                                    0xffffb74d),
+                                                            (sensorData.temperatureC <= 10 || sensorData.temperatureC >= 32)
+                                                                ? Colors.red.shade400
+                                                                : const Color(0xffFF9800),
                                                             shadowColor:
                                                                 const Color(
                                                                     0xffffb74d),
@@ -263,17 +266,24 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             height: 60,
-                                            child: const Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.all(1.5),
+                                                  padding: const EdgeInsets.all(1.5),
                                                   child: Text(
-                                                    'Status: ${'Normal'} ',
+                                                      'Status: ${sensorData.temperatureC <= 10
+                                                          ? 'Low'
+                                                          : (sensorData.temperatureC >= 32
+                                                          ? 'High'
+                                                          : 'Normal')}',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
+                                                      color: (sensorData.temperatureC <= 10 || sensorData.temperatureC >= 32)
+                                                          ? Colors.red.shade400
+                                                          : Colors.green.shade400,
                                                       fontSize: 20.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -318,7 +328,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
                                       border: Border.all(
-                                          color: Colors.green.shade400,
+                                          color: (sensorData.humidity <= 30 || sensorData.humidity >= 70)
+                                              ? Colors.red.shade400
+                                              : Colors.green.shade400,
                                           width: 2)),
                                   child: Column(
                                     children: [
@@ -354,8 +366,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                                 const Color(
                                                                     0xff0277bd),
                                                             progressBarColor:
-                                                                const Color(
-                                                                    0xff4FC3F7),
+                                                            (sensorData.humidity <= 30 || sensorData.humidity >= 70)
+                                                                ? Colors.red.shade400
+                                                                : const Color(0xff4FC3F7),
                                                             shadowColor:
                                                                 const Color(
                                                                     0xffB2EBF2),
@@ -412,17 +425,24 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             height: 60,
-                                            child: const Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.all(1.5),
+                                                  padding: const EdgeInsets.all(1.5),
                                                   child: Text(
-                                                    'Status: ${'Normal'} ',
+                                                    'Status: ${sensorData.humidity <= 30
+                                                        ? 'Low'
+                                                        : (sensorData.humidity >= 70
+                                                        ? 'High'
+                                                        : 'Normal')}',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
+                                                      color: (sensorData.humidity <= 30 || sensorData.humidity >= 70)
+                                                          ? Colors.red.shade400
+                                                          : Colors.green.shade400,
                                                       fontSize: 20.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -468,7 +488,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
                                       border: Border.all(
-                                          color: Colors.green.shade400,
+                                          color: sensorData.soilMoisture < 30 ? Colors.red.shade400 : Colors.green.shade400,
                                           width: 2)),
                                   child: Column(
                                     children: [
@@ -504,8 +524,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                                 const Color(
                                                                     0xff6AA84F),
                                                             progressBarColor:
-                                                                const Color(
-                                                                    0xff93C47D),
+                                                            (sensorData.soilMoisture < 30 || sensorData.soilMoisture > 70)
+                                                                ? Colors.red
+                                                                : const Color(0xff93C47D),
                                                             shadowColor:
                                                                 const Color(
                                                                     0xff93C47D),
@@ -563,17 +584,24 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             height: 60,
-                                            child: const Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.all(1.5),
+                                                  padding: const EdgeInsets.all(1.5),
                                                   child: Text(
-                                                    'Status: ${'Normal'} ',
+                                                    'Status: ${sensorData.soilMoisture < 30
+                                                        ? 'Low'
+                                                        : (sensorData.soilMoisture > 70
+                                                        ? 'High'
+                                                        : 'Normal')}',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
+                                                      color: (sensorData.soilMoisture < 30 || sensorData.soilMoisture > 70)
+                                                          ? Colors.red
+                                                          : Colors.green,
                                                       fontSize: 20.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -618,7 +646,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
                                       border: Border.all(
-                                          color: Colors.green.shade400,
+                                          color: sensorData.waterLevel < 30 ? Colors.red.shade400 : Colors.green.shade400,
                                           width: 2)),
                                   child: Column(
                                     children: [
@@ -654,8 +682,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                                 const Color(
                                                                     0xff0277bd),
                                                             progressBarColor:
-                                                                const Color(
-                                                                    0xff4FC3F7),
+                                                            sensorData.waterLevel < 30
+                                                                ? Colors.red
+                                                                : const Color(0xff4FC3F7),
                                                             shadowColor:
                                                                 const Color(
                                                                     0xffB2EBF2),
@@ -712,17 +741,24 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             height: 60,
-                                            child: const Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.all(1.5),
+                                                  padding: const EdgeInsets.all(1.5),
                                                   child: Text(
-                                                    'Status: ${'Low'} ',
+                                                    'Status: ${sensorData.waterLevel < 30
+                                                        ? 'Low'
+                                                        : (sensorData.waterLevel > 70
+                                                        ? 'High'
+                                                        : 'Normal')}',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
+                                                      color: sensorData.waterLevel < 30
+                                                          ? Colors.red
+                                                          : Colors.green,
                                                       fontSize: 20.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -816,7 +852,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   'Status: ${sensorData.fanStatus ? 'On' : 'Off'}',
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
+                                                    color: sensorData.pumpStatus ? Colors.green : Colors.red,
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -908,7 +945,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   'Status: ${sensorData.pumpStatus ? 'On' : 'Off'}',
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
+                                                    color: sensorData.pumpStatus ? Colors.green : Colors.red,
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
