@@ -823,7 +823,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(24),
                                   border: Border.all(
-                                    color: Colors.green.shade400,
+                                    color: sensorData.fanStatus
+                                        ? Colors.green.shade400
+                                        : Colors.red.shade400,
                                     width: 2,
                                   ),
                                 ),
@@ -878,9 +880,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: TextStyle(
-                                                    color: sensorData.pumpStatus
-                                                        ? Colors.green
-                                                        : Colors.red,
+                                                    color: sensorData.fanStatus
+                                                        ? Colors.green.shade400
+                                                        : Colors.red.shade400,
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -918,7 +920,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(24),
                                   border: Border.all(
-                                    color: Colors.green.shade400,
+                                    color: sensorData.pumpStatus
+                                        ? Colors.green.shade400
+                                        : Colors.red.shade400,
                                     width: 2,
                                   ),
                                 ),
