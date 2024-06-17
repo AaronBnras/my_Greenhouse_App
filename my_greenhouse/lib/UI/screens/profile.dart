@@ -3,7 +3,7 @@ import 'package:my_greenhouse/UI/screens/widgets/profile_widget.dart';
 import 'package:my_greenhouse/constants.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
