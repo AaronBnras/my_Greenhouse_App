@@ -1,22 +1,31 @@
 class SensorData {
-  final double temperature;
+  final double temperatureC;
+  final double temperatureF;
   final double humidity;
-  final double soilMoisture;
   final double waterLevel;
+  final double soilMoisture;
+  final bool fanStatus;
+  final bool pumpStatus;
 
   SensorData({
-    required this.temperature,
+    required this.temperatureC,
+    required this.temperatureF,
     required this.humidity,
-    required this.soilMoisture,
     required this.waterLevel,
+    required this.soilMoisture,
+    required this.fanStatus,
+    required this.pumpStatus
   });
 
-  factory SensorData.fromJson(dynamic json) {
+  factory SensorData.fromJson(Map<String, dynamic> json) {
     return SensorData(
-      temperature: double.tryParse(json['field1']) ?? 0.0,
-      humidity: double.tryParse(json['field2']) ?? 0.0,
-      soilMoisture: double.tryParse(json['field3']) ?? 0.0,
-      waterLevel: double.tryParse(json['field4']) ?? 0.0,
+      temperatureC: json['temperatureC']?.toDouble() ?? 0.0,
+      temperatureF: json['temperatureF']?.toDouble() ?? 0.0,
+      humidity: json['humidity']?.toDouble() ?? 0.0,
+      waterLevel: json['waterLevel']?.toDouble() ?? 0.0,
+      soilMoisture: json['soilMoisture']?.toDouble() ?? 0.0,
+      fanStatus: json['fanStatus'] ?? false,
+      pumpStatus: json['pumpStatus'] ?? false,
     );
   }
 }
