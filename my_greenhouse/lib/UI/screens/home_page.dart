@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:my_greenhouse/UI/screens/widgets/show_popup.dart';
+// import 'package:my_greenhouse/UI/screens/widgets/show_popup.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
 import 'package:my_greenhouse/data/firebase_service.dart'; // Import your FirebaseService
@@ -116,59 +116,59 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: Constants.horizontalPadding,
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            showPopup(context);
-                          },
-                          child: Container(
-                            width: 150,
-                            decoration: BoxDecoration(
-                              color: Colors.green.shade400,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 20,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Setup Device',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          children: <Widget>[
-                            const Expanded(
-                              child: TextField(
-                                // controller: _controller,
-                                decoration: InputDecoration(
-                                  labelText: 'Enter System ID',
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: const Text('Connect'),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsets.symmetric(
+                      //     horizontal: Constants.horizontalPadding,
+                      //   ),
+                      //   child: GestureDetector(
+                      //     onTap: () {
+                      //       showPopup(context);
+                      //     },
+                      //     child: Container(
+                      //       width: 150,
+                      //       decoration: BoxDecoration(
+                      //         color: Colors.green.shade400,
+                      //         borderRadius: BorderRadius.circular(10),
+                      //       ),
+                      //       padding: const EdgeInsets.symmetric(
+                      //         horizontal: 10,
+                      //         vertical: 20,
+                      //       ),
+                      //       child: const Center(
+                      //         child: Text(
+                      //           'Setup Device',
+                      //           style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontSize: 18.0,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      // const SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(16.0),
+                      //   child: Row(
+                      //     children: <Widget>[
+                      //       const Expanded(
+                      //         child: TextField(
+                      //           // controller: _controller,
+                      //           decoration: InputDecoration(
+                      //             labelText: 'Enter System ID',
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const SizedBox(width: 8),
+                      //       ElevatedButton(
+                      //         onPressed: () {},
+                      //         child: const Text('Connect'),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                       const SizedBox(
                         height: 10,
                       ),
