@@ -1,5 +1,3 @@
-// lib/services/firebase_authentication.dart
-
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAuthentication {
@@ -7,14 +5,25 @@ class FirebaseAuthentication {
 
   Future<UserCredential> signUp(String email, String password) async {
     try {
-      UserCredential userCredential = await _auth
-          .createUserWithEmailAndPassword(
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      throw _handleAuthError(e);
+      throw handleAuthError(e);
+    }
+  }
+
+  Future<UserCredential> signIn(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      throw handleAuthError(e);
     }
   }
 
@@ -30,20 +39,24 @@ class FirebaseAuthentication {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
-      throw _handleAuthError(e);
+      throw handleAuthError(e);
     }
   }
 
-  String _handleAuthError(FirebaseAuthException e) {
+  String handleAuthError(FirebaseAuthException e) {
     switch (e.code) {
       case 'weak-password':
         return 'The password provided is too weak.';
       case 'email-already-in-use':
         return 'The account already exists for that email.';
       case 'invalid-email':
-        return 'The email address is not valid.';
+        return 'The email address is badly formatted.';
       case 'user-not-found':
-        return 'No user found with this email address.';
+        return 'No user found with this email.';
+      case 'wrong-password':
+        return 'Incorrect password.';
+      case 'user-disabled':
+        return 'This account has been disabled.';
       default:
         return 'An error occurred: ${e.message}';
     }

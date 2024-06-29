@@ -9,20 +9,19 @@ class customtextfield extends StatelessWidget {
   final String? Function(String?)? validator;
 
   const customtextfield({
-    Key? key,
+    super.key,
     required this.icon,
     required this.obscureText,
     required this.hintText,
     this.controller,
     this.validator,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
-      validator: validator,
       style: TextStyle(
         color: Constants.blackColor,
       ),
@@ -35,6 +34,7 @@ class customtextfield extends StatelessWidget {
         hintText: hintText,
       ),
       cursorColor: Constants.blackColor.withOpacity(.5),
+      validator: validator,
     );
   }
 }
