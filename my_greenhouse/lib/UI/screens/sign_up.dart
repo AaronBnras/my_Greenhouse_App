@@ -1,7 +1,6 @@
-// lib/UI/screens/Sign_up.dart
-
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/UI/screens/Sign_in.dart';
+import 'package:my_greenhouse/UI/screens/widgets/custom_textfield.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +23,6 @@ class _SignUpState extends State<SignUp> {
   bool _isLoading = false;
   final FirebaseAuthentication _auth = FirebaseAuthentication();
 
-  // Email validation regex pattern
   final _emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
   void _showSnackBar(String message, bool isError) {
@@ -44,34 +42,23 @@ class _SignUpState extends State<SignUp> {
       });
 
       try {
-        UserCredential? userCredential = await _auth.signUp(
+        UserCredential userCredential = await _auth.signUp(
           _emailController.text,
           _passwordController.text,
         );
 
-        if (userCredential != null && userCredential.user != null) {
-          await _auth.updateUserProfile(userCredential.user!, _fullNameController.text);
+        await _auth.updateUserProfile(userCredential.user!, _fullNameController.text);
 
-          _showSnackBar('Sign up successful!', false);
+        _showSnackBar('Sign up successful!', false);
 
-          // Wait for 2 seconds to show the success message before navigating
-          await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(Duration(seconds: 2));
 
-          Navigator.pushReplacement(
-            context,
-            PageTransition(child: const SignIn(), type: PageTransitionType.topToBottom),
-          );
-        }
-      } on FirebaseAuthException catch (e) {
-        String errorMessage = 'An error occurred. Please try again.';
-        if (e.code == 'weak-password') {
-          errorMessage = 'The password provided is too weak.';
-        } else if (e.code == 'email-already-in-use') {
-          errorMessage = 'The account already exists for that email.';
-        }
-        _showSnackBar(errorMessage, true);
+        Navigator.pushReplacement(
+          context,
+          PageTransition(child: const SignIn(), type: PageTransitionType.topToBottom),
+        );
       } catch (e) {
-        _showSnackBar('An error occurred. Please try again.', true);
+        _showSnackBar(e.toString(), true);
       }
 
       setState(() {
@@ -80,11 +67,8 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -103,12 +87,11 @@ class _SignUpState extends State<SignUp> {
                       style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 30),
-                    TextFormField(
+                    customtextfield(
+                      icon: Icons.alternate_email,
+                      obscureText: false,
+                      hintText: 'Enter Email',
                       controller: _emailController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.alternate_email),
-                        hintText: 'Enter Email',
-                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';
@@ -119,12 +102,11 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                     ),
-                    TextFormField(
+                    customtextfield(
+                      icon: Icons.person,
+                      obscureText: false,
+                      hintText: 'Enter Full Name',
                       controller: _fullNameController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
-                        hintText: 'Enter Full Name',
-                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your full name';
@@ -132,13 +114,11 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                     ),
-                    TextFormField(
-                      controller: _passwordController,
+                    customtextfield(
+                      icon: Icons.lock,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        hintText: 'Enter Password',
-                      ),
+                      hintText: 'Enter Password',
+                      controller: _passwordController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter a password';
@@ -146,13 +126,11 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                     ),
-                    TextFormField(
-                      controller: _confirmPasswordController,
+                    customtextfield(
+                      icon: Icons.lock,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        hintText: 'Confirm Password',
-                      ),
+                      hintText: 'Confirm Password',
+                      controller: _confirmPasswordController,
                       validator: (value) {
                         if (value != _passwordController.text) {
                           return 'Passwords do not match';
