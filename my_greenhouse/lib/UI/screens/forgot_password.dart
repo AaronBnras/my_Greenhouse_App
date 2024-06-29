@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_greenhouse/UI/screens/widgets/custom_textfield.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../../constants.dart';
 import 'sign_in.dart';
+import '../../services/firebase_authentication.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -12,8 +13,9 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final _emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
   final TextEditingController _emailController = TextEditingController();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuthentication _auth = FirebaseAuthentication();
   bool _isLoading = false;
 
   Future<void> _resetPassword() async {
@@ -22,21 +24,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       return;
     }
 
+    if (!_emailRegex.hasMatch(_emailController.text.trim())) {
+      _showSnackBar('Please enter a valid email address.', true);
+      return;
+    }
+
     setState(() {
       _isLoading = true;
     });
 
     try {
-      await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
+      await _auth.sendPasswordResetEmail(_emailController.text.trim());
       _showSnackBar('Password reset email sent. Please check your inbox.', false);
-    } on FirebaseAuthException catch (e) {
-      String errorMessage = 'An error occurred. Please try again.';
-      if (e.code == 'user-not-found') {
-        errorMessage = 'No user found with this email address.';
-      }
-      _showSnackBar(errorMessage, true);
     } catch (e) {
-      _showSnackBar('An error occurred. Please try again.', true);
+      print('Error: $e'); // Debug log
+      _showSnackBar(e.toString(), true);
     }
 
     setState(() {
@@ -75,13 +77,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ),
               const SizedBox(height: 30),
-              TextField(
+              customtextfield(
+                icon: Icons.alternate_email,
                 obscureText: false,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.alternate_email),
-                  hintText: 'Enter Email',
-                ),
+                hintText: 'Enter Email',
                 controller: _emailController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  if (!_emailRegex.hasMatch(value)) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 20),
               GestureDetector(

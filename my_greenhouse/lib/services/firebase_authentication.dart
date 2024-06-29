@@ -1,3 +1,5 @@
+// lib/services/firebase_authentication.dart
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAuthentication {
@@ -5,13 +7,14 @@ class FirebaseAuthentication {
 
   Future<UserCredential> signUp(String email, String password) async {
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      throw _handleSignUpError(e);
+      throw _handleAuthError(e);
     }
   }
 
@@ -23,7 +26,15 @@ class FirebaseAuthentication {
     await _auth.signOut();
   }
 
-  String _handleSignUpError(FirebaseAuthException e) {
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw _handleAuthError(e);
+    }
+  }
+
+  String _handleAuthError(FirebaseAuthException e) {
     switch (e.code) {
       case 'weak-password':
         return 'The password provided is too weak.';
@@ -31,8 +42,10 @@ class FirebaseAuthentication {
         return 'The account already exists for that email.';
       case 'invalid-email':
         return 'The email address is not valid.';
+      case 'user-not-found':
+        return 'No user found with this email address.';
       default:
-        return 'An error occurred. Please try again later.';
+        return 'An error occurred: ${e.message}';
     }
   }
 }
