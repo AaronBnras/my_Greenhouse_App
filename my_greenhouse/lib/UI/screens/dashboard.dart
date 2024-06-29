@@ -673,7 +673,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           color: sensorData.waterLevel < 30
                                               ? Colors.red.shade400
                                               : Colors.green.shade400,
-                                          width: 2)),
+                                          width: 2),),
                                   child: Column(
                                     children: [
                                       const Row(
