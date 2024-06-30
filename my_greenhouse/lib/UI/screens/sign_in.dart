@@ -55,20 +55,12 @@ class _SignInState extends State<SignIn> {
     } catch (e) {
       String errorMessage = e.toString();
       if (errorMessage.contains('user-not-found')) {
-        errorMessage = 'No user found with this email. Please register.';
-      } else if (errorMessage.contains('wrong-password')) {
-        errorMessage = 'Incorrect password. Please try again.';
-      } else if (errorMessage.contains('invalid-email')) {
-        errorMessage = 'The email address is badly formatted.';
-      } else if (errorMessage.contains('user-disabled')) {
-        errorMessage =
-            'This account has been disabled. Please contact support.';
-      } else if (errorMessage.contains('too-many-requests')) {
-        errorMessage = 'Too many failed attempts. Please try again later.';
+        _showSnackBar('User not found. Please register.');
+      } else if (errorMessage.contains('invalid-credential')) {
+        _showSnackBar('The provided credentials are invalid. Please check and try again.');
       } else {
-        errorMessage = 'An error occurred. Please try again.';
+        _showSnackBar(errorMessage);
       }
-      _showSnackBar(errorMessage);
     } finally {
       setState(() {
         _isLoading = false;

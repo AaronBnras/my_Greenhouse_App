@@ -27,6 +27,7 @@ class FirebaseAuthentication {
     }
   }
 
+
   Future<void> updateUserProfile(User user, String displayName) async {
     await user.updateDisplayName(displayName);
   }
@@ -52,11 +53,13 @@ class FirebaseAuthentication {
       case 'invalid-email':
         return 'The email address is badly formatted.';
       case 'user-not-found':
-        return 'No user found with this email.';
+        return 'User not found. Please register.';
       case 'wrong-password':
-        return 'Incorrect password.';
+        return 'Incorrect password. Please try again.';
       case 'user-disabled':
-        return 'This account has been disabled.';
+        return 'This account has been disabled. Please contact support.';
+      case 'invalid-credential':
+        return 'The provided credentials are invalid. Please check and try again.';
       default:
         return 'An error occurred: ${e.message}';
     }
