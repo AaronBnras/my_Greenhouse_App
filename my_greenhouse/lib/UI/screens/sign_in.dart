@@ -21,11 +21,16 @@ class _SignInState extends State<SignIn> {
   final FirebaseAuthentication _auth = FirebaseAuthentication();
   bool _isLoading = false;
 
-  void _showSnackBar(String message) {
+  void _showSnackBar(String message, {bool isError = true}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Text(message, style: TextStyle(
+          color: isError ? Colors.white : Colors.black,
+          fontWeight: FontWeight.bold,
+        ),),
+
         duration: const Duration(seconds: 3),
+        backgroundColor: isError ? Colors.red : Colors.white,
       ),
     );
   }
