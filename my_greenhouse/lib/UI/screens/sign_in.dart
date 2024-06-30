@@ -19,6 +19,7 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FirebaseAuthentication _auth = FirebaseAuthentication();
+  bool _isLoading = false;
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -38,6 +39,10 @@ class _SignInState extends State<SignIn> {
       return;
     }
 
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
       await _auth.signIn(email, password);
       Navigator.pushReplacement(
@@ -49,16 +54,25 @@ class _SignInState extends State<SignIn> {
       );
     } catch (e) {
       String errorMessage = e.toString();
-      if (errorMessage.contains('No user found with this email')) {
-        errorMessage = 'User is not registered';
-      } else if (errorMessage.contains('Incorrect password')) {
-        errorMessage = 'Incorrect password';
-      } else if (errorMessage.contains('The email address is badly formatted')) {
-        errorMessage = 'The email address is badly formatted';
+      if (errorMessage.contains('user-not-found')) {
+        errorMessage = 'No user found with this email. Please register.';
+      } else if (errorMessage.contains('wrong-password')) {
+        errorMessage = 'Incorrect password. Please try again.';
+      } else if (errorMessage.contains('invalid-email')) {
+        errorMessage = 'The email address is badly formatted.';
+      } else if (errorMessage.contains('user-disabled')) {
+        errorMessage =
+            'This account has been disabled. Please contact support.';
+      } else if (errorMessage.contains('too-many-requests')) {
+        errorMessage = 'Too many failed attempts. Please try again later.';
       } else {
         errorMessage = 'An error occurred. Please try again.';
       }
       _showSnackBar(errorMessage);
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -97,25 +111,36 @@ class _SignInState extends State<SignIn> {
               ),
               const SizedBox(height: 20),
               GestureDetector(
-                onTap: _signIn,
+                onTap: _isLoading ? null : _signIn,
                 child: Container(
                   width: size.width,
                   decoration: BoxDecoration(
-                    color: Constants.primaryColor,
+                    color: _isLoading
+                        ? Constants.primaryColor.withOpacity(0.7)
+                        : Constants.primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 20,
                   ),
-                  child: const Center(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                    ),
+                  child: Center(
+                    child: _isLoading
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                            ),
+                          ),
                   ),
                 ),
               ),

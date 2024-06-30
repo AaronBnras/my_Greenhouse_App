@@ -5,6 +5,7 @@ import 'package:my_greenhouse/UI/screens/widgets/profile_widget.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/services/firebase_authentication.dart';
 import 'package:my_greenhouse/UI/screens/sign_in.dart';
+import 'package:my_greenhouse/utils/string_extension.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -168,7 +169,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Row(
                     children: [
                       Text(
-                        _displayName,
+                        _displayName.capitalize(),
                         style: TextStyle(
                           color: Constants.blackColor,
                           fontSize: 16,

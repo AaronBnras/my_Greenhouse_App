@@ -1,10 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:my_greenhouse/UI/screens/widgets/show_popup.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
-import 'package:my_greenhouse/data/firebase_service.dart'; // Import your FirebaseService
+import 'package:my_greenhouse/data/firebase_service.dart';
 import 'package:my_greenhouse/models/sensors_box.dart';
+import 'package:my_greenhouse/utils/string_extension.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,10 +17,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final FirebaseService firebaseService = FirebaseService();
+  User? _user;
+  String _displayName = '';
 
   @override
   void initState() {
     super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    _user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _displayName = _user?.displayName ?? 'No Name';
+    });
   }
 
   @override
@@ -57,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                                 AnimatedTextKit(
                                   animatedTexts: [
                                     TypewriterAnimatedText(
-                                      'Hello "Username"',
+                                      'Hello "${_displayName}"'.toLowerCase(),
                                       textStyle: const TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.w500,
@@ -91,8 +103,8 @@ class _HomePageState extends State<HomePage> {
                               'Welcome',
                               style: TextStyle(fontSize: 18),
                             ),
-                            const Text(
-                              'Aaron Maeda',
+                            Text(
+                              _displayName.capitalize(),
                               style: TextStyle(
                                 fontSize: 28.0,
                                 fontWeight: FontWeight.w900,

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_greenhouse/constants.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
@@ -17,10 +18,20 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final FirebaseService firebaseService = FirebaseService();
+  User? _user;
+  String _displayName = '';
+
 
   @override
   void initState() {
     super.initState();
+    _loadUserData();
+  }
+  Future<void> _loadUserData() async {
+    _user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _displayName = _user?.displayName ?? 'No Name';
+    });
   }
 
   @override
@@ -63,14 +74,14 @@ class _DashboardPageState extends State<DashboardPage> {
                                       ),
                                     ],
                                   ),
-                                  const Padding(
+                                   Padding(
                                     padding: EdgeInsets.only(left: 10),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Username',
+                                          _displayName,
                                           style: TextStyle(
                                               fontWeight: FontWeight.w400,
                                               fontSize: 24.0),
