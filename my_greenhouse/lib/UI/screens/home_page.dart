@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                                 AnimatedTextKit(
                                   animatedTexts: [
                                     TypewriterAnimatedText(
-                                      'Hello "${_displayName}"'.toLowerCase(),
+                                      'Hello "$_displayName"'.toLowerCase(),
                                       textStyle: const TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.w500,
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Text(
                               _displayName.capitalize(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 28.0,
                                 fontWeight: FontWeight.w900,
                               ),
@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
                                   minHeight:
-                                      MediaQuery.of(context).size.height * 0.6,
+                                  MediaQuery.of(context).size.height * 0.6,
                                   maxHeight: double.infinity,
                                 ),
                                 child: GridView.builder(
@@ -250,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
                                   gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 8,
                                     childAspectRatio: 11 / 10,
