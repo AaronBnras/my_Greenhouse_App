@@ -6,7 +6,7 @@ import 'sign_in.dart';
 import '../../services/firebase_authentication.dart';
 
 class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+  const ForgotPassword({super.key});
 
   @override
   _ForgotPasswordState createState() => _ForgotPasswordState();
@@ -51,7 +51,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       SnackBar(
         content: Text(message),
         backgroundColor: isError ? Colors.red : Colors.green,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ),
     );
   }
@@ -104,8 +104,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   child: Center(
                     child: _isLoading
-                        ? CircularProgressIndicator(color: Colors.white)
-                        : Text(
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : const Text(
                       'Reset Password',
                       style: TextStyle(
                         color: Colors.white,
