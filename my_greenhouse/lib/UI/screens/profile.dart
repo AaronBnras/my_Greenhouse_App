@@ -34,17 +34,17 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void _signOut(BuildContext context) async {
-    final FirebaseAuthentication _auth = FirebaseAuthentication();
+    final FirebaseAuthentication auth = FirebaseAuthentication();
 
     try {
-      await _auth.signOut();
+      await auth.signOut();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SignIn()),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error signing out. Please try again.')),
+        const SnackBar(content: Text('Error signing out. Please try again.')),
       );
     }
   }
@@ -53,13 +53,13 @@ class _ProfilePageState extends State<ProfilePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        final TextEditingController _currentPasswordController = TextEditingController();
-        final TextEditingController _newPasswordController = TextEditingController();
-        final TextEditingController _confirmPasswordController = TextEditingController();
+        final TextEditingController currentPasswordController = TextEditingController();
+        final TextEditingController newPasswordController = TextEditingController();
+        final TextEditingController confirmPasswordController = TextEditingController();
         // final FirebaseAuthentication _auth = FirebaseAuthentication();
 
         return AlertDialog(
-          title: Text('Change Password'),
+          title: const Text('Change Password'),
           content: SingleChildScrollView(
             child: Column(
               children: [
@@ -67,40 +67,40 @@ class _ProfilePageState extends State<ProfilePage> {
                   obscureText: true,
                   hintText: 'Current Password',
                   icon: Icons.lock,
-                  controller: _currentPasswordController,
+                  controller: currentPasswordController,
                 ),
                 customtextfield(
                   obscureText: true,
                   hintText: 'New Password',
                   icon: Icons.lock,
-                  controller: _newPasswordController,
+                  controller: newPasswordController,
                 ),
                 customtextfield(
                   obscureText: true,
                   hintText: 'Confirm New Password',
                   icon: Icons.lock,
-                  controller: _confirmPasswordController,
+                  controller: confirmPasswordController,
                 ),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Submit'),
+              child: const Text('Submit'),
               onPressed: () async {
-                final currentPassword = _currentPasswordController.text.trim();
-                final newPassword = _newPasswordController.text.trim();
-                final confirmPassword = _confirmPasswordController.text.trim();
+                final currentPassword = currentPasswordController.text.trim();
+                final newPassword = newPasswordController.text.trim();
+                final confirmPassword = confirmPasswordController.text.trim();
 
                 if (newPassword != confirmPassword) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('New passwords do not match.')),
+                    const SnackBar(content: Text('New passwords do not match.')),
                   );
                   return;
                 }
@@ -117,7 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     await user.updatePassword(newPassword);
 
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Password successfully updated.')),
+                      const SnackBar(content: Text('Password successfully updated.')),
                     );
                     Navigator.of(context).pop();
                   }
