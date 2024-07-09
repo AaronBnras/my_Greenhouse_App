@@ -1,7 +1,7 @@
 extension CapitalizeExtension on String {
   String capitalize() {
     List<String> words =
-        this.split(RegExp(r'\s+')); // Splitting by one or more spaces
+        split(RegExp(r'\s+')); // Splitting by one or more spaces
 
     return words
         .map((word) =>
