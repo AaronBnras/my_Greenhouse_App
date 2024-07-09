@@ -64,13 +64,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               createPage(
                 image:
-                    'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
+                'assets/images/black-farmer-picking-up-vegetables-and-welcoming-with-thumbs-up.png',
                 title: Constants.titleThree,
                 description: Constants.descriptionThree,
               ),
               createPage(
                 image:
-                    'assets/images/black-farmer-welcoming-with-thumbs-up.png',
+                'assets/images/black-farmer-welcoming-with-thumbs-up.png',
                 title: Constants.titleFour,
                 description: Constants.descriptionFour,
               )
@@ -84,37 +84,37 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Positioned(
-              bottom: 60,
-              right: 30,
-              child: Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Constants.primaryColor),
-                child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (currentindex < 3) {
-                          currentindex++;
-                          if (currentindex < 4) {
-                            _pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeIn);
-                          }
-                        } else {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const SignIn()));
-                        }
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 34,
-                      color: Colors.white,
-                    ),
+            bottom: 60,
+            right: 30,
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Constants.primaryColor),
+              child: IconButton(
+                onPressed: () {
+                  setState(() {
+                    if (currentindex < 3) {
+                      currentindex++;
+                      if (currentindex < 4) {
+                        _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn);
+                      }
+                    } else {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const SignIn()));
+                    }
+                  });
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 34,
+                  color: Colors.white,
                 ),
               ),
+            ),
           )
         ],
       ),
