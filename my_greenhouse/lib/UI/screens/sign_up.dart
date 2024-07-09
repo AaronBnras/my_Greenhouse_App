@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_greenhouse/services/firebase_authentication.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+  const SignUp({super.key});
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -30,7 +30,7 @@ class _SignUpState extends State<SignUp> {
       SnackBar(
         content: Text(message),
         backgroundColor: isError ? Colors.red : Colors.green,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ),
     );
   }
@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
 
         _showSnackBar('Sign up successful!', false);
 
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 2));
 
         Navigator.pushReplacement(
           context,
@@ -149,8 +149,8 @@ class _SignUpState extends State<SignUp> {
                         padding: const EdgeInsets.symmetric(vertical: 20),
                       ),
                       child: _isLoading
-                          ? CircularProgressIndicator(color: Colors.white)
-                          : Text(
+                          ? const CircularProgressIndicator(color: Colors.white)
+                          : const Text(
                         'Sign Up',
                         style: TextStyle(color: Colors.white, fontSize: 18.0),
                       ),
@@ -160,7 +160,7 @@ class _SignUpState extends State<SignUp> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Have an Account? '),
+                          const Text('Have an Account? '),
                           TextButton(
                             onPressed: () => Navigator.pushReplacement(
                               context,
