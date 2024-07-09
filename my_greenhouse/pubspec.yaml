@@ -42,6 +42,8 @@ dependencies:
   cloud_firestore: ^5.0.2
   firebase_analytics: ^11.1.0
   firebase_database: ^11.0.2
+#  js: ^0.6.7
+  js: ^0.7.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -54,7 +56,6 @@ dependencies:
   icons_plus: ^5.0.0
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.68.0
-#  gauge_indicator: ^0.4.3
 
 
 dev_dependencies:
