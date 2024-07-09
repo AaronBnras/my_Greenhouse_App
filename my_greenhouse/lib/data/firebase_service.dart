@@ -1,12 +1,40 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:my_greenhouse/data/sensor_data.dart';
+import 'package:fl_chart/fl_chart.dart';
+
+enum TimeUnit { second, minute, hour, day, week }
 
 class FirebaseService {
+  static final FirebaseService _instance = FirebaseService._internal();
+
+  factory FirebaseService() {
+    return _instance;
+  }
+
+  FirebaseService._internal();
+
   final DatabaseReference sensorDataRef =
   FirebaseDatabase.instance.ref().child('sensorData');
   final DatabaseReference statusRef =
   FirebaseDatabase.instance.ref().child('status');
+
+  // New data persistence
+  Map<TimeUnit, List<FlSpot>> temperatureDataPoints = {
+    for (var unit in TimeUnit.values) unit: []
+  };
+  Map<TimeUnit, List<FlSpot>> humidityDataPoints = {
+    for (var unit in TimeUnit.values) unit: []
+  };
+  Map<TimeUnit, List<FlSpot>> soilMoistureDataPoints = {
+    for (var unit in TimeUnit.values) unit: []
+  };
+  Map<TimeUnit, List<FlSpot>> waterLevelDataPoints = {
+    for (var unit in TimeUnit.values) unit: []
+  };
+  final Map<TimeUnit, DateTime> lastUpdateTime = {
+    for (var unit in TimeUnit.values) unit: DateTime.now()
+  };
 
   Stream<SensorData?> get sensorDataStream {
     if (kDebugMode) {
