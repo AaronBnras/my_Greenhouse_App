@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -33,16 +19,17 @@
   <link rel="manifest" href="manifest.json">
 
   <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = null;
+    const serviceWorkerVersion = '{{flutter_service_worker_version}}';
   </script>
-  <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <!-- Add these lines for Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
 </head>
 <body>
 <script>
   window.addEventListener('load', function(ev) {
-    // Download main.dart.js
     _flutter.loader.loadEntrypoint({
       serviceWorker: {
         serviceWorkerVersion: serviceWorkerVersion,
@@ -55,28 +42,21 @@
     });
   });
 </script>
+
+<!-- Add this script for Firebase initialization -->
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCSMQYx3Wni4Vk13vzEMRkMEc57Vxx1IPo",
+    authDomain: "greenhouse-farm.firebaseapp.com",
+    projectId: "greenhouse-farm",
+    storageBucket: "greenhouse-farm.appspot.com",
+    messagingSenderId: "420052989314",
+    appId: "1:420052989314:web:9a55d39fb61bd24e760b9b",
+    measurementId: "G-QMNZ7FWSVL",
+    databaseURL: "https://greenhouse-farm-default-rtdb.firebaseio.com/"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
-<!--<script type="module">-->
-<!--  // Import the functions you need from the SDKs you need-->
-<!--  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";-->
-<!--  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";-->
-<!--  // TODO: Add SDKs for Firebase products that you want to use-->
-<!--  // https://firebase.google.com/docs/web/setup#available-libraries-->
-
-<!--  // Your web app's Firebase configuration-->
-<!--  // For Firebase JS SDK v7.20.0 and later, measurementId is optional-->
-<!--  const firebaseConfig = {-->
-<!--    apiKey: "AIzaSyCSMQYx3Wni4Vk13vzEMRkMEc57Vxx1IPo",-->
-<!--    authDomain: "greenhouse-farm.firebaseapp.com",-->
-<!--    projectId: "greenhouse-farm",-->
-<!--    storageBucket: "greenhouse-farm.appspot.com",-->
-<!--    messagingSenderId: "420052989314",-->
-<!--    appId: "1:420052989314:web:9786daf78d4cd151760b9b",-->
-<!--    measurementId: "G-JW8Y3SDEZ1"-->
-<!--  };-->
-
-<!--  // Initialize Firebase-->
-<!--  const app = initializeApp(firebaseConfig);-->
-<!--  const analytics = getAnalytics(app);-->
-<!--</script>-->
 </html>
