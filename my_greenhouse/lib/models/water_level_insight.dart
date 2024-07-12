@@ -187,7 +187,7 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Soil Moisture Trend',
+                  'Water Level Trend',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -232,7 +232,7 @@ class _WaterLevelInsightState extends State<WaterLevelInsight> {
               padding: const EdgeInsets.all(16.0),
               child: LineChart(
                 LineChartData(
-                  minY: -1,
+                  minY: 0,
                   maxY: 100,
                   minX: 0,
                   maxX: (maxDataPoints - 1).toDouble(),
